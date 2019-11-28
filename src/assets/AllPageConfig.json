@@ -1,0 +1,1444 @@
+{    
+    "ordinaryPage":{
+        "ipLogicTopo": {
+            "text": "逻辑拓扑-IP级",
+            "name": "ipLogicTopo",
+            "page": {
+                "all_options": {
+                    "name": "action",
+                    "options": [
+                        {
+                            "value": "all",
+                            "label": "ipv4",
+                            "sub_select": {
+                                "name": "type",
+                                "options": [
+                                    {
+                                        "value": "link",
+                                        "label": "链路",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "AS",
+                                                "name": "in_out_asn",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            {"title": "入IP", "name": "in_ip","width": 120 },
+                                            {"title":"出IP", "name": "out_ip", "width": 120 },
+                                            {"title":"链路容量", "name": "bandwidth", "width": 100 },
+                                            {"title":"匿名跳数", "name": "star", "width": 70 },
+                                            {"title":"终端", "name": "is_dest", "width": 50 },
+                                            {"title":"入IP域名", "name": "in_domain","width": 100 },
+                                            {"title":"入IP Whois信息", "name": "in_whois","width": 120 },
+                                            {"title":"出IP域名", "name": "out_domain","width": 100 },
+                                            {"title":"出IP Whois信息", "name": "out_whois","width": 120 },
+                                            {"title":"AS边界", "name": "is_as_boundary","width": 80 },
+                                            {"title":"入自治域", "name": "in_asn","width": 80 },
+                                            {"title":"出自治域", "name": "out_asn","width": 80 },
+                                            {"title":"国家边界", "name": "is_country_boundary","width": 80 },
+                                            {"title":"入国家城市", "name": "in_country","width": 100 },
+                                            {"title":"出国家城市", "name": "out_country","width": 100 },
+                                            {"title": "监测点", "name": "monitor", "width": 120 },
+                                            {"title": "首次发现时间\r\n最后发现时间", "name": "first_seen", "width": 200 }
+                                        ]
+                                    },
+                                    {
+                                        "value": "node",
+                                        "label": "节点",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "AS",
+                                                "name": "in_out_asn",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            { "title":"IP", "name": "ip", "width": 150 },      
+                                            { "title":"设备", "name": "device_info", "width": 150 },
+                                            { "title":"域名", "name": "domain","width": 150 },
+                                            { "title":"路由器编号", "name": "rtr_id","width": 100 },
+                                            { "title":"节点度", "name": "degree" },
+                                            { "title":"POP", "name": "pop_id", "width": 120 },
+                                            { "title":"国家", "name": "country" },
+                                            { "title":"城市", "name": "city","width": 120 },
+                                            { "title":"归属AS", "name": "asn" },
+                                            { "title":"AS边界", "name": "is_as_boundary","width": 80 },
+                                            { "title":"国家边界", "name": "is_country_boundary","width": 80 }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "value": "ipv6",
+                            "label": "ipv6",
+                            "sub_select": {
+                                "name": "type",
+                                "options": [
+                                    {
+                                        "value": "link",
+                                        "label": "链路",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "AS",
+                                                "name": "in_out_asn",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            {"title":"入IP", "name": "in_ip", "width":300 },
+                                            {"title":"出IP", "name": "out_ip", "width":300 },
+                                            {"title":"匿名路由数量", "name": "star", "width": 100 },
+                                            {"title":"终端", "name": "is_dest", "width": 50 },
+                                            {"title":"入IP域名", "name": "in_domain","width": 100 },
+                                            {"title":"入IP Whois信息", "name": "in_whois","width": 120 },
+                                            {"title":"出IP域名", "name": "out_domain","width": 100 },
+                                            {"title":"出IP Whois信息", "name": "out_whois","width": 120 },
+                                            {"title":"AS边界", "name": "is_as_boundary","width": 80 },
+                                            {"title":"入自治域<br/>出自治域", "name": "in_asn","width": 80 },
+                                            {"title": "监测点", "name": "monitor", "width":300 },
+                                            {"title": "首次发现时间<br/>最后发现时间", "name": "first_seen", "width": 200 }
+                                        ]
+                                    },
+                                    {
+                                        "value": "node",
+                                        "label": "节点",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            { "title":"IP", "name": "ip", "width": 300 },      
+                                            { "title":"设备", "name": "device_info", "width": 150 },
+                                            { "title":"域名", "name": "domain","width": 100 },
+                                            { "title":"节点度", "name": "degree" },
+                                            { "title":"POP", "name": "pop_id" },
+                                            { "title":"国家", "name": "country" },
+                                            { "title":"城市", "name": "city" },
+                                            { "title":"归属AS", "name": "asn" },
+                                            { "title":"AS边界", "name": "is_as_boundary","width": 80 },
+                                            { "title":"国家边界", "name": "is_country_boundary","width": 80 }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "logicalTopology": {
+            "text": "逻辑拓扑-路由器级（IPv4）",
+            "name": "logicalTopology",
+            "page": {
+                "all_options": {
+                    "name": "action",
+                    "options": [
+                        {
+                            "value": "router_link",
+                            "label": "链路",
+                            "sub_select": {
+                                "name": "type",
+                                "options": [
+                                    {
+                                        "value": "1",
+                                        "label": "路由链路",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [
+                                            {
+                                                "label": "AS边界",
+                                                "name":"is_as_boundary",
+                                                "options": [
+                                                    {
+                                                        "label": "是",
+                                                        "value": "Y"
+                                                    },
+                                                    {
+                                                        "label": "否",
+                                                        "value": "N"
+                                                    }
+                                                ]
+                                            },{
+                                                "label": "国家网关",
+                                                "name":"is_country_boundary",
+                                                "options": [
+                                                    {
+                                                        "label": "是",
+                                                        "value": "Y"
+                                                    },
+                                                    {
+                                                        "label": "否",
+                                                        "value": "N"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            {"title": "入IP","name": "in_ip","width": 150},
+                                            {"title": "出IP","name": "out_ip","width": 150},
+                                            {"title": "带宽","name": "bandwidth"}, 
+                                            {"title": "匿名跳数","name": "ttl","width": 100}, 
+                                            {"title": "入IP域名","name": "in_domain","width": 150}, 
+                                            {"title": "入IP Whois信息","name": "in_whois","width": 200},
+                                            {"title": "出IP域名","name": "out_domain","width": 150}, 
+                                            {"title": "出IP Whois信息","name": "out_whois","width": 200}, 
+                                            {"title": "入IP所属国家城市","name": "in_country","width": 150}, 
+                                            {"title": "出IP所属国家城市","name": "out_country","width": 150}, 
+                                            {"title": "入IP经度","name": "in_longitude","width": 150}, 
+                                            {"title": "入IP纬度","name": "in_latitude","width": 150}, 
+                                            {"title": "出IP经度","name": "out_longitude","width": 150}, 
+                                            {"title": "出IP纬度","name": "out_latitude","width": 150}, 
+                                            {"title": "监测点","name": "monitor"}, 
+                                            {"title": "首次发现时间<br/>最后发现时间","name": "first_seen","width": 200}
+                                        ]
+                                    },
+                                    {
+                                        "value": "2",
+                                        "label": "MPLS",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            {"title": "入IP","name": "in_ip","width": 150},
+                                            {"title": "出IP","name": "out_ip","width": 150},
+                                            {"title": "带宽","name": "bandwidth"}, 
+                                            {"title": "匿名跳数","name": "ttl","width": 100}, 
+                                            {"title": "入IP域名","name": "in_domain","width": 150}, 
+                                            {"title": "入IP Whois信息","name": "in_whois","width": 200},
+                                            {"title": "出IP域名","name": "out_domain","width": 150}, 
+                                            {"title": "出IP Whois信息","name": "out_whois","width": 200}, 
+                                            {"title": "入IP所属国家城市","name": "in_country","width": 150}, 
+                                            {"title": "出IP所属国家城市","name": "out_country","width": 150}, 
+                                            {"title": "入IP经度","name": "in_longitude","width": 150}, 
+                                            {"title": "入IP纬度","name": "in_latitude","width": 150}, 
+                                            {"title": "出IP经度","name": "out_longitude","width": 150}, 
+                                            {"title": "出IP纬度","name": "out_latitude","width": 150}, 
+                                            {"title": "监测点","name": "monitor"}, 
+                                            {"title": "首次发现时间<br/>最后发现时间","name": "first_seen","width": 200}
+                                        ]
+                                    },
+                                    {
+                                        "value": "8",
+                                        "label": "组播路由链路",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [
+                                            {
+                                                "label": "AS边界",
+                                                "name":"is_as_boundary",
+                                                "options": [
+                                                    {
+                                                        "label": "是",
+                                                        "value": "Y"
+                                                    },
+                                                    {
+                                                        "label": "否",
+                                                        "value": "N"
+                                                    }
+                                                ]
+                                            },{
+                                                "label": "国家网关",
+                                                "name":"is_country_boundary",
+                                                "options": [
+                                                    {
+                                                        "label": "是",
+                                                        "value": "Y"
+                                                    },
+                                                    {
+                                                        "label": "否",
+                                                        "value": "N"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            {"title": "入IP","name": "in_ip","width": 150},
+                                            {"title": "出IP","name": "out_ip","width": 150},
+                                            {"title": "带宽","name": "bandwidth"}, 
+                                            {"title": "匿名跳数","name": "ttl","width": 100}, 
+                                            {"title": "入IP域名","name": "in_domain","width": 150}, 
+                                            {"title": "入IP Whois信息","name": "in_whois","width": 200},
+                                            {"title": "出IP域名","name": "out_domain","width": 150}, 
+                                            {"title": "出IP Whois信息","name": "out_whois","width": 200}, 
+                                            {"title": "入IP所属国家城市","name": "in_country","width": 150}, 
+                                            {"title": "出IP所属国家城市","name": "out_country","width": 150}, 
+                                            {"title": "入IP经度","name": "in_longitude","width": 150}, 
+                                            {"title": "入IP纬度","name": "in_latitude","width": 150}, 
+                                            {"title": "出IP经度","name": "out_longitude","width": 150}, 
+                                            {"title": "出IP纬度","name": "out_latitude","width": 150}, 
+                                            {"title": "监测点","name": "monitor"}, 
+                                            {"title": "首次发现时间<br/>最后发现时间","name": "first_seen","width": 200}
+                                        ]
+                                    },
+                                    {
+                                        "value": "4",
+                                        "label": "带宽探测",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [
+                                            {
+                                                "label": "AS边界",
+                                                "name":"is_as_boundary",
+                                                "options": [
+                                                    {
+                                                        "label": "是",
+                                                        "value": "Y"
+                                                    },
+                                                    {
+                                                        "label": "否",
+                                                        "value": "N"
+                                                    }
+                                                ]
+                                            },{
+                                                "label": "国家网关",
+                                                "name":"is_country_boundary",
+                                                "options": [
+                                                    {
+                                                        "label": "是",
+                                                        "value": "Y"
+                                                    },
+                                                    {
+                                                        "label": "否",
+                                                        "value": "N"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            {"title": "入IP","name": "in_ip","width": 150},
+                                            {"title": "出IP","name": "out_ip","width": 150},
+                                            {"title": "带宽","name": "bandwidth"}, 
+                                            {"title": "匿名跳数","name": "ttl","width": 100}, 
+                                            {"title": "入IP域名","name": "in_domain","width": 150}, 
+                                            {"title": "入IP Whois信息","name": "in_whois","width": 200},
+                                            {"title": "出IP域名","name": "out_domain","width": 150}, 
+                                            {"title": "出IP Whois信息","name": "out_whois","width": 200}, 
+                                            {"title": "入IP所属国家城市","name": "in_country","width": 150}, 
+                                            {"title": "出IP所属国家城市","name": "out_country","width": 150}, 
+                                            {"title": "入IP经度","name": "in_longitude","width": 150}, 
+                                            {"title": "入IP纬度","name": "in_latitude","width": 150}, 
+                                            {"title": "出IP经度","name": "out_longitude","width": 150}, 
+                                            {"title": "出IP纬度","name": "out_latitude","width": 150}, 
+                                            {"title": "监测点","name": "monitor"}, 
+                                            {"title": "首次发现时间<br/>最后发现时间","name": "first_seen","width": 200}
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "value": "router_node",
+                            "label": "节点",
+                            "compunents_info": {
+                                "value": "link",
+                                "label": "链路",
+                                "input_info": [
+                                    {
+                                        "label": "IP",
+                                        "name": "in_out_ip",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "label": "国家",
+                                        "name": "in_out_country",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "label": "城市",
+                                        "name": "in_out_city",
+                                        "type": "text"
+                                    }
+                                ],
+                                "button_items": {
+                                    "commit_url": "/db",
+                                    "export_url": "/db"
+                                },
+                                "front_radio": [
+                                    {
+                                        "label": "AS边界",
+                                        "name":"is_as_boundary",
+                                        "options": [
+                                            {
+                                                "label": "是",
+                                                "value": "Y"
+                                            },
+                                            {
+                                                "label": "否",
+                                                "value": "N"
+                                            }
+                                        ]
+                                    },{
+                                        "label": "国家网关",
+                                        "name":"is_country_boundary",
+                                        "options": [
+                                            {
+                                                "label": "是",
+                                                "value": "Y"
+                                            },
+                                            {
+                                                "label": "否",
+                                                "value": "N"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "backward_radio": {
+                                    "label": "",
+                                    "options": [
+                                        {
+                                            "label": "json",
+                                            "value": "json"
+                                        },
+                                        {
+                                            "label": "csv",
+                                            "value": "csv"
+                                        },
+                                        {
+                                            "label": "xml",
+                                            "value": "xml"
+                                        }
+                                    ]
+                                },
+                                "table_head":[{
+                                    "title": "IP", "name": "ip", "width": 150
+                                }, {
+                                    "title": "设备", "name": "device_info", "width": 200
+                                }, {
+                                    "title": "域名", "name": "domain", "width": 200
+                                }, {
+                                    "title": "节点度", "name": "degree", "width": 80
+                                }, {
+                                    "title": "POP", "name": "pop_id", "width": 150
+                                }, {
+                                    "title": "国家", "name": "country"
+                                }, {
+                                    "title": "城市", "name": "city"
+                                }, {
+                                    "title": "经度", "name": "longitude"
+                                }, {
+                                    "title": "纬度", "name": "latitude"
+                                }, {
+                                    "title": "归属AS", "name": "asn"
+                                }, {
+                                    "title": "AS边界", "name": "is_as_boundary", "width": 50
+                                }]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "as": {
+            "text": "逻辑拓扑-AS级",
+            "name": "as",
+            "page": {
+                "all_options": {
+                    "name": "action",
+                    "options": [
+                        {
+                            "value": "all",
+                            "label": "ipv4",
+                            "sub_select": {
+                                "name": "type",
+                                "options": [
+                                    {
+                                        "value": "link",
+                                        "label": "链路",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "AS",
+                                                "name": "in_out_asn",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            {"title": "入IP", "name": "in_ip","width": 120 },
+                                            {"title":"出IP", "name": "out_ip", "width": 120 },
+                                            {"title":"链路容量", "name": "bandwidth", "width": 100 },
+                                            {"title":"匿名跳数", "name": "star", "width": 70 },
+                                            {"title":"终端", "name": "is_dest", "width": 50 },
+                                            {"title":"入IP域名", "name": "in_domain","width": 100 },
+                                            {"title":"入IP Whois信息", "name": "in_whois","width": 120 },
+                                            {"title":"出IP域名", "name": "out_domain","width": 100 },
+                                            {"title":"出IP Whois信息", "name": "out_whois","width": 120 },
+                                            {"title":"AS边界", "name": "is_as_boundary","width": 80 },
+                                            {"title":"入自治域", "name": "in_asn","width": 80 },
+                                            {"title":"出自治域", "name": "out_asn","width": 80 },
+                                            {"title":"国家边界", "name": "is_country_boundary","width": 80 },
+                                            {"title":"入国家城市", "name": "in_country","width": 100 },
+                                            {"title":"出国家城市", "name": "out_country","width": 100 },
+                                            {"title": "监测点", "name": "monitor", "width": 120 },
+                                            {"title": "首次发现时间\r\n最后发现时间", "name": "first_seen", "width": 200 }
+                                        ]
+                                    },
+                                    {
+                                        "value": "node",
+                                        "label": "节点",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "AS",
+                                                "name": "in_out_asn",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            { "title":"IP", "name": "ip", "width": 150 },      
+                                            { "title":"设备", "name": "device_info", "width": 150 },
+                                            { "title":"域名", "name": "domain","width": 150 },
+                                            { "title":"路由器编号", "name": "rtr_id","width": 100 },
+                                            { "title":"节点度", "name": "degree" },
+                                            { "title":"POP", "name": "pop_id", "width": 120 },
+                                            { "title":"国家", "name": "country" },
+                                            { "title":"城市", "name": "city","width": 120 },
+                                            { "title":"归属AS", "name": "asn" },
+                                            { "title":"AS边界", "name": "is_as_boundary","width": 80 },
+                                            { "title":"国家边界", "name": "is_country_boundary","width": 80 }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "value": "ipv6",
+                            "label": "ipv6",
+                            "sub_select": {
+                                "name": "type",
+                                "options": [
+                                    {
+                                        "value": "link",
+                                        "label": "链路",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "AS",
+                                                "name": "in_out_asn",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            {"title":"入IP", "name": "in_ip", "width":300 },
+                                            {"title":"出IP", "name": "out_ip", "width":300 },
+                                            {"title":"匿名路由数量", "name": "star", "width": 100 },
+                                            {"title":"终端", "name": "is_dest", "width": 50 },
+                                            {"title":"入IP域名", "name": "in_domain","width": 100 },
+                                            {"title":"入IP Whois信息", "name": "in_whois","width": 120 },
+                                            {"title":"出IP域名", "name": "out_domain","width": 100 },
+                                            {"title":"出IP Whois信息", "name": "out_whois","width": 120 },
+                                            {"title":"AS边界", "name": "is_as_boundary","width": 80 },
+                                            {"title":"入自治域<br/>出自治域", "name": "in_asn","width": 80 },
+                                            {"title": "监测点", "name": "monitor", "width":300 },
+                                            {"title": "首次发现时间<br/>最后发现时间", "name": "first_seen", "width": 200 }
+                                        ]
+                                    },
+                                    {
+                                        "value": "node",
+                                        "label": "节点",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "AS",
+                                                "name": "in_out_asn",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            { "title":"IP", "name": "ip", "width": 300 },      
+                                            { "title":"设备", "name": "device_info", "width": 150 },
+                                            { "title":"域名", "name": "domain","width": 100 },
+                                            { "title":"节点度", "name": "degree" },
+                                            { "title":"POP", "name": "pop_id" },
+                                            { "title":"国家", "name": "country" },
+                                            { "title":"城市", "name": "city" },
+                                            { "title":"归属AS", "name": "asn" },
+                                            { "title":"AS边界", "name": "is_as_boundary","width": 80 },
+                                            { "title":"国家边界", "name": "is_country_boundary","width": 80 }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "popTopo": {
+            "text": "物理拓扑-PoP级",
+            "name": "popTopo",
+            "page": {
+                "all_options": {
+                    "name": "action",
+                    "options": [
+                        {
+                            "value": "pop_topo_link",
+                            "label": "链路",
+                            "compunents_info": {
+                                    
+                                "value": "link",
+                                "label": "链路",
+                                "input_info": [
+                                    {
+                                        "label": "入接口pop_id:",
+                                        "name": "in_pop_id",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "label": "出接口pop_id:",
+                                        "name": "out_pop_id",
+                                        "type": "text"
+                                    }
+                                ],
+                                "button_items": {
+                                    "commit_url": "/db",
+                                    "export_url": "/db"
+                                },
+                                "front_radio": [],
+                                "backward_radio": {
+                                    "label": "",
+                                    "options": [
+                                        {
+                                            "label": "json",
+                                            "value": "json"
+                                        },
+                                        {
+                                            "label": "csv",
+                                            "value": "csv"
+                                        },
+                                        {
+                                            "label": "xml",
+                                            "value": "xml"
+                                        }
+                                    ]
+                                },
+                                "table_head":[ {"title": "入接口pop_id","name": "in_pop_id"
+                                    }, {"title": "出接口pop_id","name": "out_pop_id"
+                                    }, {"title": "边数","name": "num"
+                                    } ]
+                            }
+                        },
+                        {
+                            "value": "pop_topo_node",
+                            "label": "POP点",
+                            "compunents_info": {
+                                        "value": "pop",
+                                        "label": "链路",
+                                        "input_info": [
+                                            {
+                                                "label": "编号:",
+                                                "name": "pop_id",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "地理位置:",
+                                                "name": "geo",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[{"title": "编号","name": "pop_id"
+                                            }, {"title": "位置","name": "geo"
+                                            }, {"title": "大小","name": "num"
+                                            } ]
+                                    
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "nationalGateway": {
+            "text": "物理拓扑-国家网关",
+            "name": "nationalGateway",
+            "page": {
+                "all_options": {
+                    "name": "action",
+                    "options": [
+                        {
+                            "value": "all",
+                            "label": "链路",
+                            "compunents_info": {
+                                        "value": "link",
+                                        "label": "链路",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[{"title": "入IP","name": "in_ip","width": 150
+                                            }, {"title": "出IP","name": "out_ip","width": 150
+                                            }, {"title": "带宽","name": "bandwidth"
+                                            }, {"title": "匿名跳数","name": "ttl","width": 100
+                                            }, {"title": "入IP域名","name": "in_domain","width": 150
+                                            }, {"title": "入IP Whois信息","name": "in_whois","width": 200
+                                            }, {"title": "出IP域名","name": "out_domain","width": 150
+                                            }, {"title": "出IP Whois信息","name": "out_whois","width": 200
+                                            }, {"title": "入IP所属国家城市","name": "in_country","width": 150
+                                            }, {"title": "出IP所属国家城市","name": "out_country","width": 150
+                                            }, {"title": "入IP经度","name": "in_longitude","width": 150
+                                            }, {"title": "入IP纬度","name": "in_latitude","width": 150
+                                            }, {"title": "出IP经度","name": "out_longitude","width": 150
+                                            }, {"title": "出IP纬度","name": "out_latitude","width": 150
+                                            }, {"title": "监测点","name": "monitor"
+                                            }, {"title": "首次发现时间<br/>最后发现时间","name": "first_seen","width": 200
+                                            } ]
+                                    
+                            }
+                        },
+                        {
+                            "value": "ipv6",
+                            "label": "节点",
+                            "compunents_info": {
+                                        "value": "link",
+                                        "label": "链路",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [
+                                            {
+                                                "label": "AS边界",
+                                                "name":"is_as_boundary",
+                                                "options": [
+                                                    {
+                                                        "label": "是",
+                                                        "value": "Y"
+                                                    },
+                                                    {
+                                                        "label": "否",
+                                                        "value": "N"
+                                                    }
+                                                ]
+                                            }],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[{"title": "IP","name": "ip","width": 150
+                                            }, {"title": "设备","name": "device_info","width": 200
+                                            }, {"title": "域名","name": "domain","width": 200
+                                            }, {"title": "节点度","name": "degree","width": 80
+                                            }, {"title": "POP","name": "pop_id","width": 150
+                                            }, {"title": "国家","name": "country"
+                                            }, {"title": "城市","name": "city"
+                                            }, {"title": "经度","name": "longitude"
+                                            }, {"title": "纬度","name": "latitude"
+                                            }, {"title": "归属AS","name": "asn"
+                                            }, {"title": "AS边界","name": "is_as_boundary","width": 50
+                                            } ]
+                                    
+                                
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "cable": {
+            "text": "物理拓扑-海底光缆",
+            "name": "cable",
+            "page": {
+                "all_options": {
+                    "name": "action",
+                    "options": [
+                        {
+                            "value": "all",
+                            "label": "链接",
+                            "compunents_info": {
+                                        "value": "link",
+                                        "label": "链路",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "AS",
+                                                "name": "in_out_asn",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            {
+                                                "name": "landing_point_in","title":"入口"
+                                            },{
+                                                "name": "landing_point_out","title":"出口"
+                                            },{
+                                                "name": "medium","title":"介质"
+                                            },{
+                                                "name": "cable","title":"光缆"
+                                            },{
+                                                "name": "in_country","title":"入国家"
+                                            },{
+                                                "name": "out_country","title":"出国家"
+                                            },{
+                                                "name": "in_latlng","title":"入坐标"
+                                            },{
+                                                "name": "out_latlng","title":"出坐标"
+                                            },{
+                                                "name": "cable_rfs","title":"光缆服务时间"
+                                            },{
+                                                "name": "cable_len","title":"光缆长度"
+                                            },{
+                                                "name": "cable_url","title":"光缆网址"
+                                            },{
+                                                "name": "update_time","title":"更新时间"
+                                            }
+                                        ]
+                                    
+                                
+                            }
+                        },
+                        {
+                            "value": "ipv6",
+                            "label": "节点",
+                            "compunents_info": {
+                                        "value": "link",
+                                        "label": "链路",
+                                        "input_info": [
+                                            {
+                                                "label": "IP",
+                                                "name": "in_out_ip",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "国家",
+                                                "name": "in_out_country",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "城市",
+                                                "name": "in_out_city",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "label": "AS",
+                                                "name": "in_out_asn",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "button_items": {
+                                            "commit_url": "/db",
+                                            "export_url": "/db"
+                                        },
+                                        "front_radio": [],
+                                        "backward_radio": {
+                                            "label": "",
+                                            "options": [
+                                                {
+                                                    "label": "json",
+                                                    "value": "json"
+                                                },
+                                                {
+                                                    "label": "csv",
+                                                    "value": "csv"
+                                                },
+                                                {
+                                                    "label": "xml",
+                                                    "value": "xml"
+                                                }
+                                            ]
+                                        },
+                                        "table_head":[
+                                            {
+                                                "title": "详细信息", "name": "cable_node_pre", "width": "70px"
+                                            }, {
+                                                "title": "名称", "name": "name"
+                                            }, {
+                                                "title": "长度", "name": "length"
+                                            }, {
+                                                "title": "服务时间", "name": "rfs"
+                                            }, {
+                                                "title": "官网", "name": "url"
+                                            }
+                                        ]
+                                    
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "specialPage":{
+        "statistics":{
+        },
+        "router":{
+            "table_head": [
+                {
+                "name": "task_name",
+                "title": "文件名"
+                },
+                {
+                "name": "task_id",
+                "title": "任务id"
+                },
+                {
+                "name": "type",
+                "title": "设备类型"
+                },
+                {
+                "name": "result_url",
+                "title": "配置详情",
+                "width": "250px"
+                }
+            ],
+            "data_url": "/parseConfList"
+            
+        }
+    }
+}

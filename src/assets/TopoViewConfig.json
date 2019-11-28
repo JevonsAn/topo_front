@@ -1,0 +1,100 @@
+{
+    "ipv4_node":{
+        "neighbour":{
+            "title":"邻居",
+            "url":"db/",
+            "params":{
+                "action":"single"
+            }
+        },
+        "three_hops":{
+            "title":"三跳邻居",
+            "url":"graph/",
+            "params":{
+                "action":"vic"
+            }
+        }
+        
+    },
+    "ipv6_node":{
+        "neighbour":{
+            "title":"邻居",
+            "url":"db/",
+            "params":{
+                "action":"single"
+            }
+        },
+        "three_hops":{
+            "title":"三跳邻居",
+            "url":"graph/",
+            "params":{
+                "action":"vic"
+            }
+        }
+    },
+    "logic_topo":{
+        "tables":[
+            {
+                "title":"链路变化",
+                "table_head":[
+                    {"title": "入IP","name": "in_ip","width": 150},
+                    {"title": "出IP","name": "out_ip","width": 150},
+                    {"title":"最后发现","name": "last_seen","width": 250},
+                    {"title":"倒数第二次发现","name": "second_last_seen","width": 250},
+                    {"title":"倒数第三次发现","name": "third_last_seen","width": 250},
+                    {"title":"倒数第四次发现","name": "fourth_last_seen","width": 250},
+                    {"title":"倒数第五次发现","name": "fifth_last_seen","width": 250}
+                ]
+            },
+            {
+                "title":"路由接口合并节点",
+                "table_head":[
+                    {"title": "经过接口归并发现可能是一个路由器的节点","name": "ip","width": 200}, 
+                    {"title": "判断依据","name": "reasonField","width": 500}
+                ]
+            }
+        ],
+        "neighbour":{
+            "title":"邻居",
+            "url":"db/",
+            "params":{
+                "action":"single"
+            }
+        },
+        "three_hops":{
+            "title":"三跳邻居",
+            "url":"graph/",
+            "params":{
+                "action":"vic"
+            }
+        }
+    },
+    "topo_view":{
+        "neighbour_table_head":[
+            {"title":"入IP", "name": "in_ip", "width": 150 },
+            {"title":"出IP", "name": "out_ip", "width": 150 },
+            {"title":"终端", "name": "is_dest", "width": 80 },
+            {"title":"匿名跳数", "name": "star", "width": 60 },
+            {"title":"延迟时间", "name": "delay", "width": 60 },
+            {"title":"入自治域", "name": "in_asn" },
+            {"title":"出自治域", "name": "out_asn" },
+            {"title":"入国家", "name": "in_country" },
+            {"title":"出国家", "name": "out_country" },
+            {"title":"入城市", "name": "in_city" },
+            {"title":"出城市", "name": "out_city" }
+           ],
+        "three_hops_table_head":[
+            {"title":"入IP", "name": "in_ip", "width": 150 },
+            {"title":"出IP", "name": "out_ip", "width": 150 },
+            {"title":"终端", "name": "is_dest", "width": 80 },
+            {"title":"匿名跳数", "name": "star", "width": 60 },
+            {"title":"延迟时间", "name": "delay", "width": 60 },
+            {"title":"入自治域", "name": "in_asn" },
+            {"title":"出自治域", "name": "out_asn" },
+            {"title":"入国家", "name": "in_country" },
+            {"title":"出国家", "name": "out_country" },
+            {"title":"入城市", "name": "in_city" },
+            {"title":"出城市", "name": "out_city" }
+           ]
+    }
+}

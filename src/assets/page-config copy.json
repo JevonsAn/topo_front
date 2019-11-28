@@ -1,0 +1,67 @@
+module.exports = {
+  statistics: {
+    name: 'statistics',
+    text: '统计信息',
+    iframe: ''
+  },
+  ipLogicTopo: {
+    name: 'ipLogicTopo',
+    text: '逻辑拓扑-IP级',
+    page: {
+      input_info: {
+        inputs: [{
+          lable: 'Ip：',
+          name: 'in_out_ip',
+          type: 'text'
+        }, {
+          lable: '国家：',
+          name: 'in_out_country',
+          type: 'text'
+        }, {
+          lable: '城市：',
+          name: 'in_out_city',
+          type: 'text'
+        }, {
+          lable: 'AS：',
+          name: 'in_out_asn',
+          type: 'text'
+        }]
+      },
+      button_items: {
+        commit_url: '/db',
+        export_url: '/db'
+      }
+    }
+
+  },
+  logicalTopology: {
+    name: 'logicalTopology',
+    text: '逻辑拓扑-路由器级（IPv4）',
+    iframe: ''
+  },
+  as: {
+    name: 'as',
+    text: '逻辑拓扑-AS级',
+    iframe: ''
+  },
+  popTopo: {
+    name: 'popTopo',
+    text: '物理拓扑-PoP级',
+    iframe: ''
+  },
+  nationalGateway: {
+    name: 'nationalGateway',
+    text: '物理拓扑-国家网关',
+    iframe: ''
+  },
+  cable: {
+    name: 'cable',
+    text: '物理拓扑-海底光缆',
+    iframe: ''
+  },
+  router: {
+    name: 'router',
+    text: '路由器配置解析',
+    iframe: ''
+  }
+}
