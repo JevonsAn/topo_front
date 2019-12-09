@@ -1,0 +1,49 @@
+{
+  "as_and_nation_boundary_require": [
+    {
+      "label": "AS边界",
+      "name": "is_as_boundary",
+      "options": [
+        {
+          "label": "是",
+          "value": "Y"
+        },
+        {
+          "label": "否",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "label": "国家网关",
+      "name": "is_country_boundary",
+      "options": [
+        {
+          "label": "是",
+          "value": "Y"
+        },
+        {
+          "label": "否",
+          "value": "N"
+        }
+      ]
+    }
+  ],
+  "as_boundary_require": [
+    {
+      "label": "AS边界",
+      "name": "is_as_boundary",
+      "options": [
+        {
+          "label": "是",
+          "value": "Y"
+        },
+        {
+          "label": "否",
+          "value": "N"
+        }
+      ]
+    }
+  ],
+  "no_require":[]
+}

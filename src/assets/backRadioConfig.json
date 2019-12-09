@@ -1,0 +1,19 @@
+{
+    "export_radio": {
+        "label": "",
+        "options": [
+          {
+            "label": "json",
+            "value": "json"
+          },
+          {
+            "label": "csv",
+            "value": "csv"
+          },
+          {
+            "label": "xml",
+            "value": "xml"
+          }
+        ]
+      }
+  }

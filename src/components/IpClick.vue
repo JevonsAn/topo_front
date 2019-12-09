@@ -10,7 +10,7 @@
             邻居
         </h4>
         <base-table-with-pager ></base-table-with-pager>
-        
+         
     </template>
     <template v-else-if=" click_type === 'logic_node' ">
         <h4 class="sub-header">

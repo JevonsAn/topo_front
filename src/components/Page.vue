@@ -28,11 +28,12 @@
         :inputs_info="inputs_info"
         :inputs_data="inputs_data"
         :button_items="button_items"
-        :front_radio="front_radio"
-        :backward_radio="backward_radio"
+        :front_radio_str="front_radio"
+        :backward_radio_str="backward_radio"
         @submit="commit"
         @export_event="export_event"
         ref="forms"
+        :inputs_identifier="this.action+this.type"
       ></BaseForms>
       <BaseTableWithPager
         ref="table"
@@ -60,7 +61,8 @@
 </template>
 
 <script>
-import table_data from "@/assets/tableDataForTest";
+// import table_data from "@/assets/tableDataForTest";
+import selectToActionAndType from "@/assets/selectToActionAndType.json";
 export default {
   props: ["page_config","page_name"],
   data() {
@@ -69,16 +71,24 @@ export default {
     let action = all_action_options.options[0].value;
     let type = "";
 
-    var params = {};
-    // this.forms_conditon=params
-    params[all_action_options.name] = action;
-
+    // find type of the first option
     if (all_action_options.options[0].hasOwnProperty("sub_select")) {
       let type_option = all_action_options.options[0].sub_select.options;
       type = type_option[0].value;
-      params[all_action_options.options[0].sub_select.name] = type;
     } else {
       type = "";
+    }
+
+    var params = {};
+    // this.forms_conditon=params
+    // params[all_action_options.name] = action;
+    if(type===""){
+      params["action"] = selectToActionAndType[action]["action"];
+      params["type"] = selectToActionAndType[action]["type"];
+    }
+    else{
+      params["action"] = selectToActionAndType[action][type]["action"];
+      params["type"] = selectToActionAndType[action][type]["type"];
     }
 
     return {
@@ -203,12 +213,26 @@ export default {
       console.log(this.$refs["downloadtag"].href);
     },
     select_change: function() {
+      this.$refs.forms.clean()
       var params = this.$refs.forms.submit_condition;
+      // console.log(params)
+      // console.log(this.action)
+      // console.log(this.type)
+      // console.log(selectToActionAndType[this.action])
+      // console.log(selectToActionAndType[this.action][this.type])
       this.currentPage = 1;
-      // this.forms_conditon=params
-      params[this.all_action_options.name] = this.action;
-      if (this.have_type_options) {
-        params[this.all_type_options.name] = this.type;
+      this.forms_conditon=params
+      // params[this.all_action_options.name] = this.action;
+      // if (this.have_type_options) {
+      //   params[this.all_type_options.name] = this.type;
+      // }
+      if(this.type===""){
+        params["action"] = selectToActionAndType[this.action]["action"];
+        params["type"] = selectToActionAndType[this.action]["type"];
+      }
+      else{
+        params["action"] = selectToActionAndType[this.action][this.type]["action"];
+        params["type"] = selectToActionAndType[this.action][this.type]["type"];
       }
       Object.assign(params, this.forms_conditon);
       this.$refs.table.refresh(params);

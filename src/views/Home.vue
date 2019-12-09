@@ -21,7 +21,6 @@
   export default {
     data() {
       return {
-        
         specialPage : AllPageConfig.specialPage,
         ordinaryPage:AllPageConfig.ordinaryPage,
         activeName: 'statistics'

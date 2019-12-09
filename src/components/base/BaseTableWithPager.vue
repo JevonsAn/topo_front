@@ -74,6 +74,7 @@ export default {
         });
     },
     refresh(condition){
+        this.table_data=[]
         if(condition !==undefined)
           this.condition=condition
         this.currentPage=1,
