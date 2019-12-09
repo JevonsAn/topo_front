@@ -38,10 +38,8 @@
         }
     },
     "router_node":{
-        "node":{
             "action":"router",
             "type":"node"
-        }
     },
     "all":{
         "link":{
@@ -54,19 +52,19 @@
         }
     },
     "pop_topo_link":{
-        "action":"",
-        "type":""
+        "action":"pop",
+        "type":"edge"
     },
     "pop_topo_node":{
-        "action":"",
-        "type":""
+        "action":"pop",
+        "type":"node"
     },
     "national_gateway_edge":{
-        "action":"national_gateway",
+        "action":"gateway",
         "type":"edge"
     },
     "national_gateway_node":{
-        "action":"national_gateway",
+        "action":"gateway",
         "type":"node"
     },
     "cable_edge":{

@@ -70,22 +70,22 @@
                     "input_info": [
                       {
                         "label": "IP",
-                        "name": "in_out_ip",
+                        "name": "ip",
                         "type": "text"
                       },
                       {
                         "label": "国家",
-                        "name": "in_out_country",
+                        "name": "country",
                         "type": "text"
                       },
                       {
                         "label": "城市",
-                        "name": "in_out_city",
+                        "name": "city",
                         "type": "text"
                       },
                       {
                         "label": "AS",
-                        "name": "in_out_asn",
+                        "name": "asn",
                         "type": "text"
                       }
                     ],
@@ -170,17 +170,17 @@
                     "input_info": [
                       {
                         "label": "IP",
-                        "name": "in_out_ip",
+                        "name": "ip",
                         "type": "text"
                       },
                       {
                         "label": "国家",
-                        "name": "in_out_country",
+                        "name": "country",
                         "type": "text"
                       },
                       {
                         "label": "城市",
-                        "name": "in_out_city",
+                        "name": "city",
                         "type": "text"
                       }
                     ],
@@ -415,17 +415,17 @@
                 "input_info": [
                   {
                     "label": "IP",
-                    "name": "in_out_ip",
+                    "name": "ip",
                     "type": "text"
                   },
                   {
                     "label": "国家",
-                    "name": "in_out_country",
+                    "name": "country",
                     "type": "text"
                   },
                   {
                     "label": "城市",
-                    "name": "in_out_city",
+                    "name": "city",
                     "type": "text"
                   }
                 ],
@@ -808,17 +808,17 @@
                 "input_info": [
                   {
                     "label": "IP",
-                    "name": "in_out_ip",
+                    "name": "ip",
                     "type": "text"
                   },
                   {
                     "label": "国家",
-                    "name": "in_out_country",
+                    "name": "country",
                     "type": "text"
                   },
                   {
                     "label": "城市",
-                    "name": "in_out_city",
+                    "name": "city",
                     "type": "text"
                   }
                 ],

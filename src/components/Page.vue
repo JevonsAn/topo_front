@@ -171,10 +171,21 @@ export default {
     commit: function(params) {
       this.currentPage = 1;
       this.forms_conditon = params;
+
       params[this.all_action_options.name] = this.action;
       if (this.have_type_options) {
         params[this.all_type_options.name] = this.type;
       }
+
+      if(this.type==="" || this.action==="router_node"){
+        params["action"] = selectToActionAndType[this.action]["action"];
+        params["type"] = selectToActionAndType[this.action]["type"];
+      }
+      else{
+        params["action"] = selectToActionAndType[this.action][this.type]["action"];
+        params["type"] = selectToActionAndType[this.action][this.type]["type"];
+      }
+
       Object.assign(params, this.forms_conditon);
       console.log("bf:", this.extra_condition);
 
@@ -226,7 +237,7 @@ export default {
       // if (this.have_type_options) {
       //   params[this.all_type_options.name] = this.type;
       // }
-      if(this.type===""){
+      if(this.type==="" || this.action==="router_node"){
         params["action"] = selectToActionAndType[this.action]["action"];
         params["type"] = selectToActionAndType[this.action]["type"];
       }
