@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-button :type="type" @click="$emit('click')">
+        <el-button :type="type" @click="$emit('click')" size="small">
             <slot ></slot>
         </el-button>
     </div>

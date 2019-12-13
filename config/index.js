@@ -1,8 +1,9 @@
-'use strict'
+'use strict';
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
-const path = require('path')
+const path = require('path');
+const address = require("./address");
 
 module.exports = {
   dev: {
@@ -12,10 +13,17 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api':{
-        target: 'http://10.10.11.141:2525/',
+        target: 'http://' + address.topo_website + ':2525/',
         changeOrigin:true,
         pathRewrite:{
           '^/api': ''
+        }
+      },
+      '/celery':{
+        target: 'http://' + address.topo_celery + ':2234/',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/celery': ''
         }
       }
     },

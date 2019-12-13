@@ -9,7 +9,7 @@
       <base-radio v-bind:options="radio.options" v-model="front_radio_data[index]"></base-radio>
     </el-form-item>
     <el-form-item>
-      <base-button type="primary" @click="submitForm()">提交</base-button>
+      <base-button type="primary" @click="submitForm()">查询</base-button>
       
     </el-form-item>
     

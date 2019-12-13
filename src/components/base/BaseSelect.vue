@@ -20,7 +20,7 @@ export default {
     },
     methods:{
       handle:function(event){
-        console.log(event);
+        // console.log(event);
         return event
       }
     }

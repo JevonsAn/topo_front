@@ -1,10 +1,16 @@
 <template>
   <div>
-    <div ref="click_div" style="display:none">
-      
+    <div ref="click_div" :style="{display: isClickdivDisplay}">
+      <IpClick
+       :action="action"
+       :type="type"
+       :ip="click_ip"
+       :out_ip="click_out_ip"
+       @click="backToBase"
+      >      </IpClick>
     </div>
-    <div ref="base_div">
-      <el-form :inline="true" :model="formInline" class="demo-form-inline">
+    <div ref="base_div" :style="{display: isBasedivDisplay}">
+      <el-form :inline="true" :model="formInline" class="demo-form-inline" style="text-align: left">
         <el-form-item label="">
           <BaseSelect
             v-bind:name="all_action_options.name"
@@ -34,13 +40,16 @@
         @export_event="export_event"
         ref="forms"
         :inputs_identifier="this.action+this.type"
+        style="text-align: left"
       ></BaseForms>
+      <br/>
       <BaseTableWithPager
         ref="table"
         :data_url="this.button_items.commit_url"
         :table_head="table_head"
         :extra_condition="table_condition"
         :page_name="page_name"
+        @ip-click="handleIpClick"
       ></BaseTableWithPager>
       <!-- <BaseTable :table_head="table_head" :table_data="table_data.data"></BaseTable>
       <el-pagination
@@ -62,8 +71,10 @@
 
 <script>
 // import table_data from "@/assets/tableDataForTest";
+import IpClick from "@/components/IpClick"
 import selectToActionAndType from "@/assets/selectToActionAndType.json";
 export default {
+  components: {IpClick},
   props: ["page_config","page_name"],
   data() {
     let all_action_options = this.page_config.all_options;
@@ -98,7 +109,10 @@ export default {
       type: type,
       formInline: {},
       forms_conditon: {},
-      table_condition: params
+      table_condition: params,
+      isClickdivDisplay: "none",
+      click_ip: "",
+      click_out_ip: "",
     };
   },
   computed: {
@@ -165,6 +179,12 @@ export default {
     },
     table_head: function() {
       return this.compunents_info.table_head;
+    },
+    isBasedivDisplay: function () {
+      if (this.isClickdivDisplay==="none")
+        return "block";
+      else
+        return "none";
     }
   },
   methods: {
@@ -224,7 +244,7 @@ export default {
       console.log(this.$refs["downloadtag"].href);
     },
     select_change: function() {
-      this.$refs.forms.clean()
+      this.$refs.forms.clean();
       var params = this.$refs.forms.submit_condition;
       // console.log(params)
       // console.log(this.action)
@@ -232,7 +252,7 @@ export default {
       // console.log(selectToActionAndType[this.action])
       // console.log(selectToActionAndType[this.action][this.type])
       this.currentPage = 1;
-      this.forms_conditon=params
+      this.forms_conditon=params;
       // params[this.all_action_options.name] = this.action;
       // if (this.have_type_options) {
       //   params[this.all_type_options.name] = this.type;
@@ -247,7 +267,16 @@ export default {
       }
       Object.assign(params, this.forms_conditon);
       this.$refs.table.refresh(params);
-    }
+    },
+    handleIpClick: function (ip, out_ip) {
+      this.click_ip = ip;
+      this.click_out_ip = out_ip;
+      console.log("ipclick!");
+      this.isClickdivDisplay = "block";
+    },
+    backToBase: function() {
+      this.isClickdivDisplay = "none";
+    },
   }
 };
 </script>
