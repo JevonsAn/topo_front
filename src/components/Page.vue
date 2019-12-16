@@ -73,6 +73,7 @@
 // import table_data from "@/assets/tableDataForTest";
 import IpClick from "@/components/IpClick"
 import selectToActionAndType from "@/assets/selectToActionAndType.json";
+import tableConfig from "../assets/tableConfig"
 export default {
   components: {IpClick},
   props: ["page_config","page_name"],
@@ -178,7 +179,9 @@ export default {
       return this.compunents_info.front_radio;
     },
     table_head: function() {
-      return this.compunents_info.table_head;
+      console.log(this.compunents_info.table_head);
+      console.log(tableConfig.table_heads[this.compunents_info.table_head]);
+      return tableConfig.table_heads[this.compunents_info.table_head];
     },
     isBasedivDisplay: function () {
       if (this.isClickdivDisplay==="none")

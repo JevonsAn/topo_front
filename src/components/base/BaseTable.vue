@@ -23,27 +23,36 @@
       :data="table_data"
       border
       style="width: 100%">
+      <template v-for="column in table_head">
+        <el-table-column v-if=" column.formatter !== undefined " :key="column.title"
+                       :width="column.width" :label="column.title" :type="column.type" :sortable="column.sort"
+                        :formatter="formatters[column.formatter]">
+        </el-table-column>
+        <el-table-column v-else :key="column.title" :prop="column.name"
+                       :width="column.width" :label="column.title" :type="column.type" :sortable="column.sort">
+          <template slot-scope="scope">
+            <p v-if="column.name ==='ip'"
+               @dblclick="$emit('node-click', scope.row.ip)">{{scope.row.ip}}
+            </p>
+            <p v-else-if="column.name ==='in_ip' || column.name ==='out_ip'"
+               @dblclick="$emit('edge-click', scope.row.in_ip, scope.row.out_ip)">{{ scope.row[column.name] }}
+            </p>
+            <p v-else-if="column.name ==='pop_id'"
+               @dblclick="$emit('node-click', scope.row.pop_id)">{{ scope.row[column.name] }}
+            </p>
+            <p v-else-if="column.name ==='first_seen'">
+               {{ scope.row.first_seen }} <br/> {{ scope.row.last_seen }}
+            </p>
+            <base-button
+              v-else-if="column.name ==='result_url'"
+              size="mini"
+              @click="$emit('click_result_url',scope.row)">查看详情
+            </base-button>
+            <span v-else>{{ scope.row[column.name] }}</span>
+          </template>
+        </el-table-column>
+      </template>
 
-      <el-table-column class="field" v-for="column in table_head" :key="column.title" :prop="column.name" :width="column.width" :label="column.title" :type="column.type">
-        <template slot-scope="scope">
-          
-          <p v-if="column.name ==='ip'"
-             @dblclick="$emit('node-click', scope.row.ip)">{{scope.row.ip}}
-          </p>
-          <p v-else-if="column.name ==='in_ip' || column.name ==='out_ip'"
-             @dblclick="$emit('edge-click', scope.row.in_ip, scope.row.out_ip)">{{ scope.row[column.name] }}
-          </p>
-          <p v-else-if="column.name ==='pop_id'"
-             @dblclick="$emit('node-click', scope.row.pop_id)">{{ scope.row[column.name] }}
-          </p>
-          <base-button
-            v-else-if="column.name ==='result_url'"
-            size="mini"
-            @click="$emit('click_result_url',scope.row)">查看详情
-          </base-button>
-          <span v-else>{{ scope.row[column.name] }}</span>
-        </template>
-      </el-table-column>
     </el-table>
     </div>
 </template>
@@ -56,6 +65,11 @@ export default {
   },
   data() {
     return {
+      formatters: {
+        "seen_formatter": function (row, column) {
+          return row.first_seen + " " + row.last_seen;
+        },
+      }
     }
   },
   methods:{
