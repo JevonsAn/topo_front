@@ -37,12 +37,12 @@ const table_heads = {
   "ipv6_link":[
     {"title":"入IP", "name": "in_ip", "width":300, "sort": true },
     {"title":"出IP", "name": "out_ip", "width":300, "sort": true},
-    {"title":"匿名路由数量", "name": "star", "width": 100 },
+    {"title":"匿名路由数量", "name": "star", "width": 120 },
     {"title":"终端", "name": "is_dest", "width": 50 },
     {"title":"AS边界", "name": "is_as_boundary","width": 80 },
-    {"title": "监测点", "name": "monitor", "width": 120 },
-    {"title":"入自治域", "name": "in_asn","width": 80 },
-    {"title":"出自治域", "name": "out_asn","width": 80 },
+    {"title": "监测点", "name": "monitor"},
+    {"title":"入自治域", "name": "in_asn"},
+    {"title":"出自治域", "name": "out_asn"},
     {"title": "首次发现/最后发现时间", "name": "first_seen", "width": 200 },
   ],
   "ipv6_node":[

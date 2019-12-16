@@ -313,7 +313,7 @@
                 },
                 "front_radio": "as_and_nation_boundary_require",
                 "backward_radio": "export_radio",
-                "table_head":"logicTopo_node"
+                "table_head": "logicTopo_node"
               }
             }
           ]

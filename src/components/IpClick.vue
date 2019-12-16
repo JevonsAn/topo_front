@@ -51,7 +51,7 @@
         if (!tables.length) {
           this.$emit('click');
         }
-        console.log(tables, this.action, this.type, this.ip, this.out_ip);
+        // console.log(tables, this.action, this.type, this.ip, this.out_ip);
         return tables;
       },
 
