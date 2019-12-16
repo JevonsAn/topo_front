@@ -22,14 +22,17 @@
       v-else
       :data="table_data"
       border
-      style="width: 100%">
+      style="width: 100%"
+      @sort-change="sort_change"
+      ref="table"
+      >
       <template v-for="column in table_head">
-        <el-table-column v-if=" column.formatter !== undefined " :key="column.title"
-                       :width="column.width" :label="column.title" :type="column.type" :sortable="column.sort"
-                        :formatter="formatters[column.formatter]">
+        <el-table-column v-if=" column.name in formatters " :key="column.title"
+                       :width="column.width" :label="column.title" :type="column.type" :sortable="column.sort?'custom':false"
+                        :formatter="formatters[column.name]">
         </el-table-column>
         <el-table-column v-else :key="column.title" :prop="column.name"
-                       :width="column.width" :label="column.title" :type="column.type" :sortable="column.sort">
+                       :width="column.width" :label="column.title" :type="column.type" :sortable="column.sort?'custom':false">
           <template slot-scope="scope">
             <p v-if="column.name ==='ip'"
                @dblclick="$emit('node-click', scope.row.ip)">{{scope.row.ip}}
@@ -43,6 +46,13 @@
             <p v-else-if="column.name ==='first_seen'">
                {{ scope.row.first_seen }} <br/> {{ scope.row.last_seen }}
             </p>
+            <p v-else-if="column.name === 'in_country'">
+               {{ scope.row.in_country }} <br/> {{ scope.row.in_city }}
+            </p>
+            <p v-else-if="column.name === 'out_country'">
+               {{ scope.row.out_country }} <br/> {{ scope.row.out_city }}
+            </p>
+            
             <base-button
               v-else-if="column.name ==='result_url'"
               size="mini"
@@ -66,13 +76,46 @@ export default {
   data() {
     return {
       formatters: {
-        "seen_formatter": function (row, column) {
-          return row.first_seen + " " + row.last_seen;
+        // "seen_formatter": function (row, column) {
+        //   return row.first_seen + " " + row.last_seen;
+        // },
+        "is_dest":function (row, column) {
+          if(row.is_dest=="Y")
+            return "是"
+          else if(row.is_dest=="N")
+            return "否"
+          else
+            return row.is_dest
+          // return row.first_seen + " " + row.last_seen;
+        },
+        "is_as_boundary":function (row, column) {
+          if(row.is_dest=="Y")
+            return "是"
+          else if(row.is_dest=="N")
+            return "否"
+          else
+            return row.is_dest
+          // return row.first_seen + " " + row.last_seen;
+        },
+        "is_country_boundary":function (row, column) {
+          if(row.is_dest=="Y")
+            return "是"
+          else if(row.is_dest=="N")
+            return "否"
+          else
+            return row.is_dest
+          // return row.first_seen + " " + row.last_seen;
         },
       }
     }
   },
   methods:{
+    sort_change:function (params) {
+      this.$emit("sort-change",params)
+    },
+    clearSort:function (params) {
+      this.$refs["table"].clearSort()
+    }
   }
 }
 </script>

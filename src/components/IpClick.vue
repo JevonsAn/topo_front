@@ -2,7 +2,7 @@
   <div style="text-align: left">
     <base-button @click="$emit('click')">返回</base-button>
     <template v-for="table in clickTables">
-      <h4 class="sub-header" style="font-size: large">
+      <h4 class="sub-header" style="font-size: large" :key="getUrl(table)">
         {{ getTitle(table) }}
       </h4>
       <BaseTableWithPager
@@ -10,9 +10,10 @@
         :table_head="getHead(table)"
         :extra_condition="getParams(table)"
         :page_name="page_name"
+        :key="getUrl(table)"
       ></BaseTableWithPager>
-      <br/>
-      <HR/>
+      <br :key="getUrl(table)"/>
+      <HR :key="getUrl(table)"/>
     </template>
   </div>
 </template>
@@ -38,6 +39,10 @@
         type:String,
         required:false
       },
+      display:{
+        type:String,
+        required:false
+      }
     },
     data() {
       return {
@@ -48,13 +53,22 @@
     computed: {
       clickTables: function () {
         let tables = clickConfig.clickPageTables(this.action, this.type);
-        if (!tables.length) {
+        // console.log(tables);
+        
+        // if (!tables.length) {
+        //   console.log("====")
+        //   this.$emit('click');
+        // }
+        // console.log(tables, this.action, this.type, this.ip, this.out_ip);
+        return tables;
+      }
+    },
+    watch: {
+      display: function (val) {
+        if (!this.clickTables.length) {
           this.$emit('click');
         }
-        console.log(tables, this.action, this.type, this.ip, this.out_ip);
-        return tables;
       },
-
     },
     methods: {
       getParams: function (table) {

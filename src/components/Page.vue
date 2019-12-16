@@ -6,6 +6,7 @@
        :type="type"
        :ip="click_ip"
        :out_ip="click_out_ip"
+       :display="isClickdivDisplay"
        @click="backToBase"
       >      </IpClick>
     </div>
@@ -74,6 +75,7 @@
 import IpClick from "@/components/IpClick"
 import selectToActionAndType from "@/assets/selectToActionAndType.json";
 import tableConfig from "../assets/tableConfig"
+import inputsInfoConfig from "../assets/inputsInfoConfig"
 export default {
   components: {IpClick},
   props: ["page_config","page_name"],
@@ -161,13 +163,16 @@ export default {
       return {};
     },
     inputs_info: function() {
-      return this.compunents_info.input_info;
+      // console.log(this.compunents_info.input_info)
+      // console.log(inputsInfoConfig)
+      // console.log(inputsInfoConfig.inputsInfo[this.compunents_info.input_info])
+      return inputsInfoConfig.inputsInfo[this.compunents_info.input_info];
     },
     button_items: function() {
       return this.compunents_info.button_items;
     },
     inputs_data: function() {
-      var input_count = this.compunents_info.input_info.length;
+      var input_count = this.inputs_info.length;
       var input_data = new Array(input_count);
       input_data = input_data.fill("", 0, input_count);
       return input_data;
@@ -179,8 +184,8 @@ export default {
       return this.compunents_info.front_radio;
     },
     table_head: function() {
-      console.log(this.compunents_info.table_head);
-      console.log(tableConfig.table_heads[this.compunents_info.table_head]);
+      // console.log(this.compunents_info.table_head);
+      // console.log(tableConfig.table_heads[this.compunents_info.table_head]);
       return tableConfig.table_heads[this.compunents_info.table_head];
     },
     isBasedivDisplay: function () {
@@ -188,6 +193,9 @@ export default {
         return "block";
       else
         return "none";
+    },
+    export_url:function () {
+      return this.button_items.export_url
     }
   },
   methods: {
@@ -210,7 +218,7 @@ export default {
       }
 
       Object.assign(params, this.forms_conditon);
-      console.log("bf:", this.extra_condition);
+      // console.log("bf:", this.extra_condition);
 
       this.$refs.table.refresh(params);
       // this.fetchData(1, this.pageSize, params);
@@ -240,14 +248,34 @@ export default {
           );
         })
         .join("&");
-      this.$refs["downloadtag"].href = "/db?" + export_params;
 
-      // this.$refs["downloadtag"].firstElementChild.click();
+      let url = ( this.export_url.startsWith("/api") || this.export_url.startsWith("/celery") ) ?
+         this.data_url : ( "/api" + this.export_url );
+      this.$refs["downloadtag"].href = url +"?"+ export_params;
 
-      console.log(this.$refs["downloadtag"].href);
+
+
+      // let url = ( this.data_url.startsWith("/api") || this.data_url.startsWith("/celery") ) ?
+      //   this.data_url : ( "/api" + this.data_url );
+      // this.$axios
+      //   .get(url, {
+      //     params: commit_params
+      //   })
+      //   .then(res => {
+      //     console.log(res.data);
+      //     this.table_data=res.data
+      //     // success callback
+      //   })
+      //   .catch(err => {
+      //     // error callback
+      //   });
+
+      this.$refs["downloadtag"].firstElementChild.click();
+
+      // console.log(this.$refs["downloadtag"].href);
     },
     select_change: function() {
-      this.$refs.forms.clean();
+      this.$refs.forms.refresh();
       var params = this.$refs.forms.submit_condition;
       // console.log(params)
       // console.log(this.action)
@@ -274,7 +302,7 @@ export default {
     handleIpClick: function (ip, out_ip) {
       this.click_ip = ip;
       this.click_out_ip = out_ip;
-      console.log("ipclick!");
+      // console.log("ipclick!");
       this.isClickdivDisplay = "block";
     },
     backToBase: function() {
