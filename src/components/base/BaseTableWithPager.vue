@@ -1,7 +1,7 @@
 <template>
   <div>
     <BaseTable :table_head="table_head" :table_data="data" :page_name="page_name"
-               @node-click="sendNodeClick" @edge-click="sendEdgeClick"
+               @node-click="sendNodeClick" @edge-click="sendEdgeClick" @sort-change="sort_change" ref='table'
     ></BaseTable>
     <br/>
     <el-pagination
@@ -30,7 +30,8 @@ export default {
       table_data: table_data,
       pageSize: 15,
       currentPage: 1,
-      condition: ( this.extra_condition !== undefined ) ? this.extra_condition : {}
+      condition: ( this.extra_condition !== undefined ) ? this.extra_condition : {},
+      sortCondition:{}
     };
   },
   computed:{
@@ -78,12 +79,20 @@ export default {
     sendEdgeClick(in_ip, out_ip){
       this.$emit('ip-click', in_ip, out_ip);
     },
+    sort_change(params){
+      this.sortCondition={
+        "sortField":params.prop,
+        "sortOrder":params.order
+      }
+      // console.log(params);
+      this.fetchData()
+    },
     fetchData() {
       let commit_params = {};
       commit_params["pageIndex"] = this.currentPage;
       commit_params["pageSize"] = this.pageSize;
 
-      Object.assign(commit_params, this.condition);
+      Object.assign(commit_params, this.condition,this.sortCondition);
       console.log("commit_params:",commit_params);
       let url = ( this.data_url.startsWith("/api") || this.data_url.startsWith("/celery") ) ?
         this.data_url : ( "/api" + this.data_url );
@@ -113,6 +122,8 @@ export default {
   },
   watch: {
     condition: function (val) {
+      this.$refs["table"].clearSort()
+      this.sortCondition={}
       this.fetchData();
     },
     extra_condition: function (val) {

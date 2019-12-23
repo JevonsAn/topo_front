@@ -8,7 +8,7 @@
     <el-form-item v-for="(radio,index) in front_radio" :label="radio.label" :key="radio.label">
       <base-radio v-bind:options="radio.options" v-model="front_radio_data[index]"></base-radio>
     </el-form-item>
-    <el-form-item>
+    <el-form-item  v-if="inputs_info.length!==0 || front_radio.length!==0">
       <base-button type="primary" @click="submitForm()">查询</base-button>
       
     </el-form-item>

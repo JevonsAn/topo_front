@@ -16,28 +16,7 @@
                   {
                     "value": "edge",
                     "label": "链路",
-                    "input_info": [
-                      {
-                        "label": "IP",
-                        "name": "in_out_ip",
-                        "type": "text"
-                      },
-                      {
-                        "label": "国家",
-                        "name": "in_out_country",
-                        "type": "text"
-                      },
-                      {
-                        "label": "城市",
-                        "name": "in_out_city",
-                        "type": "text"
-                      },
-                      {
-                        "label": "AS",
-                        "name": "in_out_asn",
-                        "type": "text"
-                      }
-                    ],
+                    "input_info": "ipv4_link",
                     "button_items": {
                       "commit_url": "/db",
                       "export_url": "/db"
@@ -49,28 +28,7 @@
                   {
                     "value": "node",
                     "label": "节点",
-                    "input_info": [
-                      {
-                        "label": "IP",
-                        "name": "ip",
-                        "type": "text"
-                      },
-                      {
-                        "label": "国家",
-                        "name": "country",
-                        "type": "text"
-                      },
-                      {
-                        "label": "城市",
-                        "name": "city",
-                        "type": "text"
-                      },
-                      {
-                        "label": "AS",
-                        "name": "asn",
-                        "type": "text"
-                      }
-                    ],
+                    "input_info": "ipv4_node",
                     "button_items": {
                       "commit_url": "/db",
                       "export_url": "/db"
@@ -91,28 +49,7 @@
                   {
                     "value": "edge",
                     "label": "链路",
-                    "input_info": [
-                      {
-                        "label": "IP",
-                        "name": "in_out_ip",
-                        "type": "text"
-                      },
-                      {
-                        "label": "国家",
-                        "name": "in_out_country",
-                        "type": "text"
-                      },
-                      {
-                        "label": "城市",
-                        "name": "in_out_city",
-                        "type": "text"
-                      },
-                      {
-                        "label": "AS",
-                        "name": "in_out_asn",
-                        "type": "text"
-                      }
-                    ],
+                    "input_info": "ipv6_link",
                     "button_items": {
                       "commit_url": "/db",
                       "export_url": "/db"
@@ -124,23 +61,7 @@
                   {
                     "value": "node",
                     "label": "节点",
-                    "input_info": [
-                      {
-                        "label": "IP",
-                        "name": "ip",
-                        "type": "text"
-                      },
-                      {
-                        "label": "国家",
-                        "name": "country",
-                        "type": "text"
-                      },
-                      {
-                        "label": "城市",
-                        "name": "city",
-                        "type": "text"
-                      }
-                    ],
+                    "input_info": "ipv6_node",
                     "button_items": {
                       "commit_url": "/db",
                       "export_url": "/db"
@@ -172,23 +93,7 @@
                   {
                     "value": "router_edge",
                     "label": "路由链路",
-                    "input_info": [
-                      {
-                        "label": "IP",
-                        "name": "in_out_ip",
-                        "type": "text"
-                      },
-                      {
-                        "label": "国家",
-                        "name": "in_out_country",
-                        "type": "text"
-                      },
-                      {
-                        "label": "城市",
-                        "name": "in_out_city",
-                        "type": "text"
-                      }
-                    ],
+                    "input_info": "logicTopo_link",
                     "button_items": {
                       "commit_url": "/db",
                       "export_url": "/db"
@@ -200,23 +105,7 @@
                   {
                     "value": "mpls_edge",
                     "label": "MPLS",
-                    "input_info": [
-                      {
-                        "label": "IP",
-                        "name": "in_out_ip",
-                        "type": "text"
-                      },
-                      {
-                        "label": "国家",
-                        "name": "in_out_country",
-                        "type": "text"
-                      },
-                      {
-                        "label": "城市",
-                        "name": "in_out_city",
-                        "type": "text"
-                      }
-                    ],
+                    "input_info": "logicTopo_link",
                     "button_items": {
                       "commit_url": "/db",
                       "export_url": "/db"
@@ -228,23 +117,7 @@
                   {
                     "value": "mrinfo_edge",
                     "label": "组播路由链路",
-                    "input_info": [
-                      {
-                        "label": "IP",
-                        "name": "in_out_ip",
-                        "type": "text"
-                      },
-                      {
-                        "label": "国家",
-                        "name": "in_out_country",
-                        "type": "text"
-                      },
-                      {
-                        "label": "城市",
-                        "name": "in_out_city",
-                        "type": "text"
-                      }
-                    ],
+                    "input_info": "logicTopo_link",
                     "button_items": {
                       "commit_url": "/db",
                       "export_url": "/db"
@@ -256,23 +129,7 @@
                   {
                     "value": "pchar_edge",
                     "label": "带宽探测",
-                    "input_info": [
-                      {
-                        "label": "IP",
-                        "name": "in_out_ip",
-                        "type": "text"
-                      },
-                      {
-                        "label": "国家",
-                        "name": "in_out_country",
-                        "type": "text"
-                      },
-                      {
-                        "label": "城市",
-                        "name": "in_out_city",
-                        "type": "text"
-                      }
-                    ],
+                    "input_info": "logicTopo_link",
                     "button_items": {
                       "commit_url": "/db",
                       "export_url": "/db"
@@ -290,23 +147,7 @@
               "compunents_info": {
                 "value": "node",
                 "label": "链路",
-                "input_info": [
-                  {
-                    "label": "IP",
-                    "name": "ip",
-                    "type": "text"
-                  },
-                  {
-                    "label": "国家",
-                    "name": "country",
-                    "type": "text"
-                  },
-                  {
-                    "label": "城市",
-                    "name": "city",
-                    "type": "text"
-                  }
-                ],
+                "input_info": "logicTopo_node",
                 "button_items": {
                   "commit_url": "/db",
                   "export_url": "/db"
@@ -333,18 +174,7 @@
               "compunents_info": {
                 "value": "link",
                 "label": "链路",
-                "input_info": [
-                  {
-                    "label": "入接口pop_id:",
-                    "name": "in_pop_id",
-                    "type": "text"
-                  },
-                  {
-                    "label": "出接口pop_id:",
-                    "name": "out_pop_id",
-                    "type": "text"
-                  }
-                ],
+                "input_info": "pop_link",
                 "button_items": {
                   "commit_url": "/db",
                   "export_url": "/db"
@@ -360,18 +190,7 @@
               "compunents_info": {
                 "value": "pop",
                 "label": "链路",
-                "input_info": [
-                  {
-                    "label": "编号:",
-                    "name": "pop_id",
-                    "type": "text"
-                  },
-                  {
-                    "label": "地理位置:",
-                    "name": "geo",
-                    "type": "text"
-                  }
-                ],
+                "input_info": "pop_node",
                 "button_items": {
                   "commit_url": "/db",
                   "export_url": "/db"
@@ -398,23 +217,7 @@
               "compunents_info": {
                 "value": "link",
                 "label": "链路",
-                "input_info": [
-                  {
-                    "label": "IP",
-                    "name": "in_out_ip",
-                    "type": "text"
-                  },
-                  {
-                    "label": "国家",
-                    "name": "in_out_country",
-                    "type": "text"
-                  },
-                  {
-                    "label": "城市",
-                    "name": "in_out_city",
-                    "type": "text"
-                  }
-                ],
+                "input_info": "nationalGateway_link",
                 "button_items": {
                   "commit_url": "/db",
                   "export_url": "/db"
@@ -430,23 +233,7 @@
               "compunents_info": {
                 "value": "link",
                 "label": "链路",
-                "input_info": [
-                  {
-                    "label": "IP",
-                    "name": "ip",
-                    "type": "text"
-                  },
-                  {
-                    "label": "国家",
-                    "name": "country",
-                    "type": "text"
-                  },
-                  {
-                    "label": "城市",
-                    "name": "city",
-                    "type": "text"
-                  }
-                ],
+                "input_info": "nationalGateway_node",
                 "button_items": {
                   "commit_url": "/db",
                   "export_url": "/db"
@@ -473,28 +260,7 @@
               "compunents_info": {
                 "value": "link",
                 "label": "链路",
-                "input_info": [
-                  {
-                    "label": "IP",
-                    "name": "in_out_ip",
-                    "type": "text"
-                  },
-                  {
-                    "label": "国家",
-                    "name": "in_out_country",
-                    "type": "text"
-                  },
-                  {
-                    "label": "城市",
-                    "name": "in_out_city",
-                    "type": "text"
-                  },
-                  {
-                    "label": "AS",
-                    "name": "in_out_asn",
-                    "type": "text"
-                  }
-                ],
+                "input_info": "cable_link",
                 "button_items": {
                   "commit_url": "/db",
                   "export_url": "/db"
@@ -510,28 +276,7 @@
               "compunents_info": {
                 "value": "link",
                 "label": "链路",
-                "input_info": [
-                  {
-                    "label": "IP",
-                    "name": "in_out_ip",
-                    "type": "text"
-                  },
-                  {
-                    "label": "国家",
-                    "name": "in_out_country",
-                    "type": "text"
-                  },
-                  {
-                    "label": "城市",
-                    "name": "in_out_city",
-                    "type": "text"
-                  },
-                  {
-                    "label": "AS",
-                    "name": "in_out_asn",
-                    "type": "text"
-                  }
-                ],
+                "input_info": "cable_node",
                 "button_items": {
                   "commit_url": "/db",
                   "export_url": "/db"
