@@ -1,9 +1,7 @@
 const table_heads = {
   "ipv4_link": [
-    {"title": "入IP", "name": "in_ip","width": 120},
-    {"title":"出IP", "name": "out_ip", "width": 120},
-    // {"title": "入IP", "name": "in_ip","width": 120, "sort": true },
-    // {"title":"出IP", "name": "out_ip", "width": 120, "sort": true },
+    {"title": "入IP", "name": "in_ip","width": 120, "sort": true },
+    {"title":"出IP", "name": "out_ip", "width": 120, "sort": true },
     {"title":"匿名跳数", "name": "star", "width": 70 },
     {"title":"终端", "name": "is_dest", "width": 50 },
     {"title":"入IP域名", "name": "in_domain","width": 100 },
@@ -16,8 +14,6 @@ const table_heads = {
     {"title":"国家边界", "name": "is_country_boundary" },
     {"title":"入IP所属国家城市", "name": "in_country","width": 100 },
     {"title":"出IP所属国家城市", "name": "out_country","width": 100 },
-    // {"title":"入城市", "name": "in_city","width": 100 },
-    // {"title":"出城市", "name": "out_city","width": 100 },
     {"title": "监测点", "name": "monitor", "width": 120 },
     {"title": "首次发现/最后发现时间", "name": "first_seen", "width": 200 },
   ],
@@ -46,7 +42,7 @@ const table_heads = {
     {"title": "首次发现/最后发现时间", "name": "first_seen", "width": 200 },
   ],
   "ipv6_node":[
-    { "title":"IP", "name": "ip", "width": 300 },
+    { "title":"IP", "name": "ip", "width": 300, "sort": true  },
     { "title":"设备", "name": "device_info", "width": 150 },
     { "title":"域名", "name": "domain","width": 100 },
     { "title":"节点度", "name": "degree" },
@@ -58,8 +54,8 @@ const table_heads = {
     { "title":"国家边界", "name": "is_country_boundary","width": 80 }
   ],
   "logicTopo_link":[
-    {"title": "入IP","name": "in_ip","width": 150},
-    {"title": "出IP","name": "out_ip","width": 150},
+    {"title": "入IP","name": "in_ip","width": 150, "sort": true },
+    {"title": "出IP","name": "out_ip","width": 150, "sort": true },
     {"title": "带宽","name": "bandwidth"},
     {"title": "匿名跳数","name": "ttl","width": 100},
     {"title": "入IP域名","name": "in_domain","width": 150},
@@ -87,18 +83,18 @@ const table_heads = {
     { "title":"域名", "name": "domain","width": 150 }
   ],
   "pop_link":[ 
-    {"title": "入接口pop_id","name": "in_pop_id" }, 
-    {"title": "出接口pop_id","name": "out_pop_id" }, 
+    {"title": "入接口pop_id","name": "in_pop_id", "sort": true  },
+    {"title": "出接口pop_id","name": "out_pop_id", "sort": true  },
     {"title": "边数","name": "num" } 
   ],
   "pop_node":[
-    {"title": "编号","name": "pop_id" }, 
+    {"title": "编号","name": "pop_id", "sort": true  },
     {"title": "位置","name": "geo" }, 
     {"title": "大小","name": "num" } 
   ],
   "nationalGateway_link":[
-    {"title": "入IP","name": "in_ip","width": 150 }, 
-    {"title": "出IP","name": "out_ip","width": 150 }, 
+    {"title": "入IP","name": "in_ip","width": 150, "sort": true  },
+    {"title": "出IP","name": "out_ip","width": 150, "sort": true  },
     {"title": "带宽","name": "bandwidth" }, 
     {"title": "匿名跳数","name": "ttl","width": 100 }, 
     {"title": "入IP域名","name": "in_domain","width": 150 }, 
@@ -115,7 +111,7 @@ const table_heads = {
     {"title": "首次发现/最后发现时间", "name": "first_seen", "width": 200 },
   ],
   "nationalGateway_node":[
-    {"title": "IP","name": "ip","width": 150 }, 
+    {"title": "IP","name": "ip","width": 150, "sort": true  },
     {"title": "设备","name": "device_info","width": 200 }, 
     {"title": "域名","name": "domain","width": 200 }, 
     {"title": "节点度","name": "degree","width": 80 },

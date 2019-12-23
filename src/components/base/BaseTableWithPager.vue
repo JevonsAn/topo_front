@@ -10,11 +10,11 @@
       :current-page="currentPage"
       :page-sizes="[5, 15, 30, 100]"
       :page-size="pageSize"
-      layout="total, slot, prev, pager, next, sizes, jumper"
-      :total="total"
+      layout="slot, prev, pager, next, sizes, jumper"
+      :total="(total!==null) ? total : 1000"
       style="text-align: center"
     >
-      <span class="el-pagination__total">用时：{{ spent_time }} s</span>
+      <span class="el-pagination__total">共 {{ (total!==null) ? total : '未知' }} 条， 用时：{{ spent_time }} s</span>
     </el-pagination>
   </div>
 </template>
@@ -35,8 +35,14 @@ export default {
     };
   },
   computed:{
-    total:function name(params) {
-      return this.table_data.itemsCount
+    total:function () {
+      // let content = this.table_data.itemsCount;
+      // return (content!==null) ? content : 1000;
+      return this.table_data.itemsCount;
+    },
+    count_txt: function () {
+      let content = this.table_data.itemsCount;
+      return (content) ? content : "未知";
     },
     data: function () {
       if (this.table_data !== undefined && 'data' in this.table_data){
@@ -106,7 +112,11 @@ export default {
           // success callback
         })
         .catch(err => {
-          // error callback
+          this.table_data={
+            "itemsCount": 0,
+            "time": 0,
+            "data": []
+          }
         });
     },
     refresh(condition){
