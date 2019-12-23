@@ -140,16 +140,16 @@ const inputsInfo = {
         "type": "text"
       }
     ],
-    "nationalGateway_link":[
-      {
-        "label": "国家",
-        "name": "in_out_country",
-        "type": "text"
-      }
-    ],
-    "nationalGateway_node":[],
     "cable_link":[
       {
+        "label": "国家",
+        "name": "in_out_country",
+        "type": "text"
+      }
+    ],
+    "cable_node":[],
+    "nationalGateway_link":[
+      {
         "label": "IP",
         "name": "in_out_ip",
         "type": "text"
@@ -170,25 +170,25 @@ const inputsInfo = {
         "type": "text"
       }
     ],
-    "cable_node":[
+    "nationalGateway_node":[
       {
         "label": "IP",
-        "name": "in_out_ip",
+        "name": "ip",
         "type": "text"
       },
       {
         "label": "国家",
-        "name": "in_out_country",
+        "name": "country",
         "type": "text"
       },
       {
         "label": "城市",
-        "name": "in_out_city",
+        "name": "city",
         "type": "text"
       },
       {
         "label": "AS",
-        "name": "in_out_asn",
+        "name": "asn",
         "type": "text"
       }
     ],

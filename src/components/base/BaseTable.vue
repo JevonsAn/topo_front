@@ -80,28 +80,28 @@ export default {
         //   return row.first_seen + " " + row.last_seen;
         // },
         "is_dest":function (row, column) {
-          if(row.is_dest=="Y")
-            return "是"
-          else if(row.is_dest=="N")
-            return "否"
+          if(row.is_dest==="Y")
+            return "是";
+          else if(row.is_dest==="N")
+            return "否";
           else
             return row.is_dest
           // return row.first_seen + " " + row.last_seen;
         },
         "is_as_boundary":function (row, column) {
-          if(row.is_dest=="Y")
-            return "是"
-          else if(row.is_dest=="N")
-            return "否"
+          if(row.is_dest==="Y")
+            return "是";
+          else if(row.is_dest==="N")
+            return "否";
           else
             return row.is_dest
           // return row.first_seen + " " + row.last_seen;
         },
         "is_country_boundary":function (row, column) {
-          if(row.is_dest=="Y")
-            return "是"
-          else if(row.is_dest=="N")
-            return "否"
+          if(row.is_dest==="Y")
+            return "是";
+          else if(row.is_dest==="N")
+            return "否";
           else
             return row.is_dest
           // return row.first_seen + " " + row.last_seen;

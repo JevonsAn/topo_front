@@ -36,13 +36,13 @@ import frontRadioConfig from "@/assets/frontRadioConfig.json"
       inputs_identifier:String
     },
     data(){
-      var backward_radio=backRadioConfig[this.backward_radio_str]
-      var front_radio=frontRadioConfig[this.front_radio_str]
+      var backward_radio=backRadioConfig[this.backward_radio_str];
+      var front_radio=frontRadioConfig[this.front_radio_str];
       var front_radio_count = front_radio.length;
       var front_radio_data = new Array(front_radio_count);
       front_radio_data = front_radio_data.fill("", 0, front_radio_data);
       for(let i in front_radio){
-        front_radio_data[i]=front_radio[i].options[0].value
+        front_radio_data[i]=front_radio[i].options[0].value;
       }
       return {
         local_inputs_data : this.inputs_data,
@@ -57,22 +57,22 @@ import frontRadioConfig from "@/assets/frontRadioConfig.json"
     },
     methods: {
       submitForm() {
-        this.submit_condition={}
+        this.submit_condition={};
         // this.$refs["inputs_form"]
-        let commit_data={}
+        let commit_data={};
         for(let i in this.local_inputs_data){
           if(this.local_inputs_data[i]!=='')
             commit_data[this.inputs_info[i].name]=this.local_inputs_data[i]
         }
-        Object.assign(this.submit_condition,commit_data)
+        Object.assign(this.submit_condition,commit_data);
         this.$emit("submit",commit_data)
 
       },
       exportData() {
-        var export_condition={}
-        export_condition["export"]= true
-        export_condition["export_type"]= this.export_type
-        Object.assign(export_condition,this.submit_condition)
+        let export_condition={};
+        export_condition["export"]= true;
+        export_condition["export_type"]= this.export_type;
+        Object.assign(export_condition,this.submit_condition);
         this.$emit("export_event",export_condition)
       },
       clean() {
@@ -83,7 +83,7 @@ import frontRadioConfig from "@/assets/frontRadioConfig.json"
       },
       refresh() {
         for(let i in this.local_inputs_data){
-          this.local_inputs_data[i]=""
+          this.local_inputs_data[i]="";
           this.submit_condition={}
         }
       }

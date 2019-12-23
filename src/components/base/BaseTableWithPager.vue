@@ -83,7 +83,7 @@ export default {
       this.sortCondition={
         "sortField":params.prop,
         "sortOrder":params.order
-      }
+      };
       // console.log(params);
       this.fetchData()
     },
@@ -122,8 +122,8 @@ export default {
   },
   watch: {
     condition: function (val) {
-      this.$refs["table"].clearSort()
-      this.sortCondition={}
+      this.$refs["table"].clearSort();
+      this.sortCondition={};
       this.fetchData();
     },
     extra_condition: function (val) {

@@ -218,31 +218,22 @@ export default {
       }
 
       Object.assign(params, this.forms_conditon);
-      // console.log("bf:", this.extra_condition);
 
       this.$refs.table.refresh(params);
-      // this.fetchData(1, this.pageSize, params);
-      // this.$axios
-      //   .get(this.button_items.commit_url, {
-      //     params: params
-      //   })
-      //   .then(res => {
-      //     // success callback
-      //   })
-      //   .catch(err => {
-      //     // error callback
-      //   });
     },
     export_event: function(params) {
-      params[this.all_action_options.name] = this.action;
-      if (this.have_type_options) {
-        params[this.all_type_options.name] = this.type;
+      if(this.type==="" || this.action==="router_node"){
+        params["action"] = selectToActionAndType[this.action]["action"];
+        params["type"] = selectToActionAndType[this.action]["type"];
+      }
+      else{
+        params["action"] = selectToActionAndType[this.action][this.type]["action"];
+        params["type"] = selectToActionAndType[this.action][this.type]["type"];
       }
 
       params["export_limit"] = 5000;
-      var export_params = Object.keys(params)
+      let export_params = Object.keys(params)
         .map(function(key) {
-          // body...
           return (
             encodeURIComponent(key) + "=" + encodeURIComponent(params[key])
           );
@@ -252,42 +243,13 @@ export default {
       let url = ( this.export_url.startsWith("/api") || this.export_url.startsWith("/celery") ) ?
          this.data_url : ( "/api" + this.export_url );
       this.$refs["downloadtag"].href = url +"?"+ export_params;
-
-
-
-      // let url = ( this.data_url.startsWith("/api") || this.data_url.startsWith("/celery") ) ?
-      //   this.data_url : ( "/api" + this.data_url );
-      // this.$axios
-      //   .get(url, {
-      //     params: commit_params
-      //   })
-      //   .then(res => {
-      //     console.log(res.data);
-      //     this.table_data=res.data
-      //     // success callback
-      //   })
-      //   .catch(err => {
-      //     // error callback
-      //   });
-
       this.$refs["downloadtag"].firstElementChild.click();
-
-      // console.log(this.$refs["downloadtag"].href);
     },
     select_change: function() {
       this.$refs.forms.refresh();
       var params = this.$refs.forms.submit_condition;
-      // console.log(params)
-      // console.log(this.action)
-      // console.log(this.type)
-      // console.log(selectToActionAndType[this.action])
-      // console.log(selectToActionAndType[this.action][this.type])
       this.currentPage = 1;
       this.forms_conditon=params;
-      // params[this.all_action_options.name] = this.action;
-      // if (this.have_type_options) {
-      //   params[this.all_type_options.name] = this.type;
-      // }
       if(this.type==="" || this.action==="router_node"){
         params["action"] = selectToActionAndType[this.action]["action"];
         params["type"] = selectToActionAndType[this.action]["type"];

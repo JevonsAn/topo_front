@@ -2,7 +2,7 @@
   <div style="text-align: left">
     <base-button @click="$emit('click')">返回</base-button>
     <template v-for="table in clickTables">
-      <h4 class="sub-header" style="font-size: large" :key="getUrl(table)">
+      <h4 class="sub-header" style="font-size: large" :key="getUrl(table) + 'h4'">
         {{ getTitle(table) }}
       </h4>
       <BaseTableWithPager
@@ -12,8 +12,8 @@
         :page_name="page_name"
         :key="getUrl(table)"
       ></BaseTableWithPager>
-      <br :key="getUrl(table)"/>
-      <HR :key="getUrl(table)"/>
+      <br :key="getUrl(table) + 'br'"/>
+      <HR :key="getUrl(table) + 'HR'"></HR>
     </template>
   </div>
 </template>
