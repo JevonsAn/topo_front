@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-tabs type="border-card"  v-model="activeName" @tab-click="handleClick">
+    <el-tabs type="card"  v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="统计信息" name="statistics">
         <iframe ref="statisticsframe" runat="server" :src="statistics_address" width="100%"
                 height="2100px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"

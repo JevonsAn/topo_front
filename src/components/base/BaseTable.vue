@@ -34,24 +34,24 @@
         <el-table-column v-else :key="column.title" :prop="column.name"
                        :width="column.width" :label="column.title" :type="column.type" :sortable="column.sort?'custom':false">
           <template slot-scope="scope">
-            <p v-if="column.name ==='ip'"
+            <div v-if="column.name ==='ip'"
                @dblclick="$emit('node-click', scope.row.ip)">{{scope.row.ip}}
-            </p>
-            <p v-else-if="column.name ==='in_ip' || column.name ==='out_ip'"
+            </div>
+            <div v-else-if="column.name ==='in_ip' || column.name ==='out_ip'"
                @dblclick="$emit('edge-click', scope.row.in_ip, scope.row.out_ip)">{{ scope.row[column.name] }}
-            </p>
-            <p v-else-if="column.name ==='pop_id'"
+            </div>
+            <div v-else-if="column.name ==='pop_id'"
                @dblclick="$emit('node-click', scope.row.pop_id)">{{ scope.row[column.name] }}
-            </p>
-            <p v-else-if="column.name ==='first_seen'">
+            </div>
+            <div v-else-if="column.name ==='first_seen'">
                {{ scope.row.first_seen }} <br/> {{ scope.row.last_seen }}
-            </p>
-            <p v-else-if="column.name === 'in_country'">
+            </div>
+            <div v-else-if="column.name === 'in_country'">
                {{ scope.row.in_country }} <br/> {{ scope.row.in_city }}
-            </p>
-            <p v-else-if="column.name === 'out_country'">
+            </div>
+            <div v-else-if="column.name === 'out_country'">
                {{ scope.row.out_country }} <br/> {{ scope.row.out_city }}
-            </p>
+            </div>
             
             <base-button
               v-else-if="column.name ==='result_url'"

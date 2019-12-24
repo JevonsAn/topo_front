@@ -1,27 +1,55 @@
 <template>
   <div style="text-align: left">
     <base-button @click="$emit('click')">返回</base-button>
-    <template v-for="table in clickTables">
-      <h4 class="sub-header" style="font-size: large" :key="getUrl(table) + 'h4'">
-        {{ getTitle(table) }}
-      </h4>
-      <BaseTableWithPager
-        :data_url="getUrl(table)"
-        :table_head="getHead(table)"
-        :extra_condition="getParams(table)"
-        :page_name="page_name"
-        :key="getUrl(table)"
-      ></BaseTableWithPager>
+    <div v-for="table in clickTables">
+      <div v-if="table === '3hops'">
+        <h4 class="sub-header" style="font-size: large" :key="getUrl(table) + 'h4'">
+          3Hops邻居
+        </h4>
+        <el-tabs type="card" v-model="activeName" @tab-click="handleClick">
+          <el-tab-pane label="3-Hops邻居" name="data">
+            <BaseTableWithPager
+              :data_url="getUrl(table)"
+              :table_head="getHead(table)"
+              :extra_condition="getParams(table)"
+              :page_name="page_name"
+              :key="getUrl(table)"
+            ></BaseTableWithPager>
+          </el-tab-pane>
+          <el-tab-pane label="可视化" name="graph">
+            <HopsGraph
+              :data_url="getUrl(table)"
+              :condition="getParams(table)"
+              :center_ip="ip"
+              :click_num="clickGraph"
+            ></HopsGraph>
+          </el-tab-pane>
+        </el-tabs>
+      </div>
+      <div v-else>
+        <h4 class="sub-header" style="font-size: large" :key="getUrl(table) + 'h4'">
+          {{ getTitle(table) }}
+        </h4>
+        <BaseTableWithPager
+          :data_url="getUrl(table)"
+          :table_head="getHead(table)"
+          :extra_condition="getParams(table)"
+          :page_name="page_name"
+          :key="getUrl(table)"
+        ></BaseTableWithPager>
+      </div>
       <br :key="getUrl(table) + 'br'"/>
       <HR :key="getUrl(table) + 'HR'"></HR>
-    </template>
+    </div>
   </div>
 </template>
 
 
 <script>
   import clickConfig from "../assets/clickTable"
+  import HopsGraph from "./base/3HopsGraph";
   export default {
+    components: {HopsGraph},
     props:{
       action:{
         type:String,
@@ -47,7 +75,9 @@
     data() {
       return {
         clickBaseTables: clickConfig.clickTables,
-        page_name: "ipClick"
+        page_name: "ipClick",
+        activeName: "data",
+        clickGraph: 0
       };
     },
     computed: {
@@ -85,6 +115,12 @@
       getTitle: function (table) {
         // console.log(table);
         return this.clickBaseTables[table]['title'];
+      },
+      handleClick(tab, event) {
+        if (tab.name === 'graph'){
+          this.clickGraph += 1;
+        }
+        // this.all_tabs[tab.index]["iframe"]="/"+tab.$props.name
       },
     },
     created() {
