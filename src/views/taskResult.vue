@@ -1,92 +1,106 @@
 <template>
   <div>
-    <el-tabs type="card" v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane label="统计信息" name="statistics">
-        <iframe
-          ref="statisticsframe"
-          runat="server"
-          :src="statistics_address"
-          width="100%"
-          height="2100px"
-          frameborder="no"
-          border="0"
-          marginwidth="0"
-          marginheight="0"
-          scrolling="no"
-          allowtransparency="yes"
-        ></iframe>
-      </el-tab-pane>
-      <el-tab-pane
-        v-for="(page_tab_value,index) in ordinaryPage"
-        :label="page_tab_value['text']"
-        :name="page_tab_value['name']"
-        :key="index"
-      >
-        <Page :page_config="page_tab_value['page']" :page_name="page_tab_value['name']"></Page>
-      </el-tab-pane>
-      <el-tab-pane label="逻辑拓扑-AS级" name="as">
-        <iframe
-          ref="asframe"
-          runat="server"
-          :src="bgp_address"
-          width="100%"
-          height="1100px"
-          frameborder="no"
-          border="0"
-          marginwidth="0"
-          marginheight="0"
-          scrolling="no"
-          allowtransparency="yes"
-        ></iframe>
-      </el-tab-pane>
-      <el-tab-pane label="路由器配置解析" name="router">
-        <iframe
-          id="routerframe"
-          runat="server"
-          :src="router_address"
-          width="100%"
-          height="1100px"
-          frameborder="no"
-          border="0"
-          marginwidth="0"
-          marginheight="0"
-          scrolling="no"
-          allowtransparency="yes"
-        ></iframe>
-      </el-tab-pane>
-    </el-tabs>
-    <!-- <router-view/> -->
+    <h2 class="sub-header">{{sub_title}}</h2>
+    <BaseForms
+      :inputs_info="inputs_info"
+      :inputs_data="inputs_data"
+      :button_items="button_items"
+      :front_radio_str="front_radio"
+      :backward_radio_str="backward_radio"
+      @submit="commit"
+      @export_event="export_event"
+      ref="forms"
+      :inputs_identifier="'taskResult'"
+      style="text-align: left"
+    ></BaseForms>
+    <br />
+    <BaseTableWithPager
+      ref="table"
+      :data_url="this.button_items.commit_url"
+      :table_head="table_head"
+      :extra_condition="table_condition"
+      :page_name="'taskResult'"
+      @ip-click="handleIpClick"
+    ></BaseTableWithPager>
+    <a ref="downloadtag" href style="display:none;">
+      <p></p>
+    </a>
   </div>
 </template>
+
 <script>
-import Page from "@/components/Page";
-import AllPageConfig from "@/assets/AllPageConfig.json";
-import RouterPage from "@/components/RouterPage";
-import address from "@/assets/address";
+import tableConfig from "../assets/tableConfig";
+import inputsInfoConfig from "../assets/inputsInfoConfig";
+import taskResultConfig from "../assets/taskResultConfig";
 export default {
+  props: {
+    taskType: String,
+    query:Object
+  },
   data() {
     return {
-      specialPage: AllPageConfig.specialPage,
-      ordinaryPage: AllPageConfig.ordinaryPage,
-      activeName: "statistics",
-      statistics_address: address.topo_celery + "/statistics",
-      bgp_address: address.bgp + "/totalquery",
-      router_address: address.topo_celery + "/routerconf"
+      select_config: "",
+      forms_conditon: {},
+      // table_condition: Object.assign({"action":"links"},this.query),
+      isClickdivDisplay: "none",
+      click_ip: "",
+      click_out_ip: ""
     };
   },
-  methods: {
-    handleClick(tab, event) {
-      // this.all_tabs[tab.index]["iframe"]="/"+tab.$props.name
+  computed: {
+    compunents_info: function() {
+      console.log(this.taskType)
+      console.log(taskResultConfig.hasOwnProperty(this.taskType))
+      console.log(taskResultConfig.hasOwnProperty("ipv4_link"))
+      console.log(taskResultConfig)
+      console.log(this.query)
+      if (taskResultConfig.hasOwnProperty(this.taskType)) {
+        return taskResultConfig[this.taskType];
+      }
+      return {};
     },
-    changeFrameHeight() {
-      let ifm = document.getElementById("routerframe");
-      ifm.height = document.documentElement.clientHeight;
+    sub_title: function () {
+      return this.compunents_info["sub_title"]
+    },
+    inputs_info: function() {
+      // console.log(this.compunents_info.input_info)
+      // console.log(inputsInfoConfig)
+      // console.log(inputsInfoConfig.inputsInfo[this.compunents_info.input_info])
+      console.log(this.compunents_info)
+      return inputsInfoConfig.inputsInfo[this.compunents_info.input_info];
+    },
+    button_items: function() {
+      return this.compunents_info.button_items;
+    },
+    inputs_data: function() {
+      var input_count = this.inputs_info.length;
+      var input_data = new Array(input_count);
+      input_data = input_data.fill("", 0, input_count);
+      return input_data;
+    },
+    backward_radio: function() {
+      return this.compunents_info.backward_radio;
+    },
+    front_radio: function() {
+      return this.compunents_info.front_radio;
+    },
+    table_condition:function () {
+      var table_condition={
+        "action":"links"
+      };
+      if(this.query.hasOwnProperty("task")){
+        table_condition["task_id"]=this.query["task"];
+      }
+      return table_condition;
+    },
+    table_head: function() {
+      // console.log(this.compunents_info.table_head);
+      // console.log(tableConfig.table_heads[this.compunents_info.table_head]);
+      return tableConfig.table_heads[this.compunents_info.table_head];
+    },
+    export_url: function() {
+      return this.button_items.export_url;
     }
-  },
-
-  components: {
-    Page: Page,
-    RouterPage: RouterPage
   }
 };
 </script>

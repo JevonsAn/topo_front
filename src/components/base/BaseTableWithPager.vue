@@ -100,7 +100,7 @@ export default {
 
       Object.assign(commit_params, this.condition,this.sortCondition);
       console.log("commit_params:",commit_params);
-      let url = ( this.data_url.startsWith("/api") || this.data_url.startsWith("/celery") ) ?
+      let url = ( this.data_url.startsWith("/api") || this.data_url.startsWith("/celery") || this.data_url.startsWith("/website") ) ?
         this.data_url : ( "/api" + this.data_url );
       this.$axios
         .get(url, {

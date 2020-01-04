@@ -25,6 +25,13 @@ module.exports = {
         pathRewrite:{
           '^/celery': ''
         }
+      },
+      '/website':{
+        target: `http://${address.topo_celery}:7777/`,
+        changeOrigin:true,
+        pathRewrite:{
+          '^/website': ''
+        }
       }
     },
 
