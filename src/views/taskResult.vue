@@ -85,12 +85,13 @@ export default {
       return this.compunents_info.front_radio;
     },
     table_condition:function () {
-      var table_condition={
-        "action":"links"
+      var table_condition = {
+        "action":"task"
       };
       if(this.query.hasOwnProperty("task")){
-        table_condition["task_id"]=this.query["task"];
+        table_condition["task_id"] = this.query["task"];
       }
+      table_condition["type"] = this.taskType;
       return table_condition;
     },
     table_head: function() {

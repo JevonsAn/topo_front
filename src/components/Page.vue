@@ -240,8 +240,9 @@ export default {
         })
         .join("&");
 
-      let url = ( this.export_url.startsWith("/api") || this.export_url.startsWith("/celery") ) ?
-         this.data_url : ( "/api" + this.export_url );
+      // let url = ( this.export_url.startsWith("/api") || this.export_url.startsWith("/celery") ) ?
+      //    this.data_url : ( "/api" + this.export_url );
+      let url = this.data_url;
       this.$refs["downloadtag"].href = url +"?"+ export_params;
       this.$refs["downloadtag"].firstElementChild.click();
     },

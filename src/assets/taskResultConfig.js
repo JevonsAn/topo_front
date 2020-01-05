@@ -2,8 +2,8 @@ const inputsInfo = {
     "ipv4_link": {
         "sub_title":"IPv4 Links",
         "button_items": {
-            "commit_url": "/website/ipv4_db",
-            "export_url": "/website/ipv4_db"
+            "commit_url": "/task_db",
+            "export_url": "/task_db"
           },
         "input_info":"ipv4_link",
         "front_radio": "no_require",
@@ -13,8 +13,8 @@ const inputsInfo = {
     "ipv6_link":{
         "sub_title":"IPv6 链接",
         "button_items": {
-            "commit_url": "/website/ipv6_db",
-            "export_url": "/website/ipv6_db"
+            "commit_url": "/task_db",
+            "export_url": "/task_db"
         },
         "input_info":"ipv4_link",
         "front_radio": "no_require",
@@ -24,8 +24,8 @@ const inputsInfo = {
     "mpls_link":{
         "sub_title":"MPLS Links",
         "button_items": {
-            "commit_url": "/website/mpls_db",
-            "export_url": "/website/mpls_db"
+            "commit_url": "/task_db",
+            "export_url": "/task_db"
         },
         "input_info":"ipv4_link",
         "front_radio": "no_require",
@@ -35,8 +35,8 @@ const inputsInfo = {
     "mrinfo_link":{
         "sub_title":"组播路由链接",
         "button_items": {
-            "commit_url": "/website/mrinfo_db",
-            "export_url": "/website/mrinfo_db"
+            "commit_url": "/task_db",
+            "export_url": "/task_db"
         },
         "input_info":"ipv4_link",
         "front_radio": "no_require",
@@ -46,8 +46,8 @@ const inputsInfo = {
     "pchar_link":{
         "sub_title":"带宽链接",
         "button_items": {
-            "commit_url": "/website/pchar_db",
-            "export_url": "/website/pchar_db"
+            "commit_url": "/task_db",
+            "export_url": "/task_db"
         },
         "input_info":"ipv4_link",
         "front_radio": "no_require",
@@ -57,8 +57,8 @@ const inputsInfo = {
     "parsedConf_link":{
         "sub_title":"路由器配置解析结果",
         "button_items": {
-            "commit_url": "/website/parsedConf_db",
-            "export_url": "/website/parsedConf_db"
+            "commit_url": "/task_db",
+            "export_url": "/task_db"
         },
         "input_info":"ipv4_link",
         "front_radio": "no_require",
@@ -68,8 +68,8 @@ const inputsInfo = {
     "iffinder_link":{
         "sub_title":"Aliases",
         "button_items": {
-            "commit_url": "/website/iffinder_db",
-            "export_url": "/website/iffinder_db"
+            "commit_url": "/task_db",
+            "export_url": "/task_db"
         },
         "input_info":"ipv4_link",
         "front_radio": "no_require",
