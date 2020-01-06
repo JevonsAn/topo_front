@@ -102,6 +102,34 @@ export default {
     export_url: function() {
       return this.button_items.export_url;
     }
+  },
+  methods:{
+    commit: function(params) {
+      this.currentPage = 1;
+      this.forms_conditon = params;
+
+      Object.assign(params, this.forms_conditon, this.table_condition);
+
+      this.$refs.table.refresh(params);
+    },
+    export_event: function(params) {
+
+      params["export_limit"] = 5000;
+      Object.assign(params, this.table_condition);
+      let export_params = Object.keys(params)
+        .map(function(key) {
+          return (
+            encodeURIComponent(key) + "=" + encodeURIComponent(params[key])
+          );
+        })
+        .join("&");
+
+      // let url = ( this.export_url.startsWith("/api") || this.export_url.startsWith("/celery") ) ?
+      //    this.data_url : ( "/api" + this.export_url );
+      let url = this.data_url;
+      this.$refs["downloadtag"].href = url +"?"+ export_params;
+      this.$refs["downloadtag"].firstElementChild.click();
+    }
   }
 };
 </script>
