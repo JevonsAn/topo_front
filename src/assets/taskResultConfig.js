@@ -2,8 +2,8 @@ const inputsInfo = {
     "ipv4_link": {
         "sub_title":"IPv4 Links",
         "button_items": {
-            "commit_url": "/website/ipv4_db",
-            "export_url": "/website/ipv4_db"
+            "commit_url": "/celery/ipv4_db",
+            "export_url": "/celery/ipv4_db"
           },
         "input_info":"ipv4_link",
         "front_radio": "no_require",
