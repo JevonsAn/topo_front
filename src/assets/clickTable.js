@@ -2,9 +2,11 @@ function special_actionType_to_params(table, action, type, ip, out_ip){
   let params = {};
   if (table === "link_change"){
      params = {
+      "action":"link_change",
       "type":  "node",
     };
     if (type.endsWith("edge") && action !== "router_node"){
+      params["action"] = "link_change";
       params["type"] = "edge";
       params["out_ip"] = out_ip;
       params["in_ip"] = ip;
@@ -46,8 +48,9 @@ function special_actionType_to_params(table, action, type, ip, out_ip){
 const clickTables = {
   "link_change": {
     "title": "链路变化",
-    "data_url": "/celery/getLinkChange",
+    "data_url": "/getLinkChange",
     "params": {
+      "action":"link_change",
       "type": "node",
       "ip": ""
     },
@@ -59,7 +62,7 @@ const clickTables = {
   },
   "neighbor":{
     "title": "邻居",
-    "data_url": "/api/db",
+    "data_url": "/db",
     "params": {
       "action": "ipv4",
       "type": "edge",
@@ -80,7 +83,7 @@ const clickTables = {
   },
   "3hops":{
     "title": "3Hops",
-    "data_url": "/api/graph",
+    "data_url": "/graph",
     "params": {
       "action": "3hops",
       "type": "ipv4",
@@ -101,7 +104,7 @@ const clickTables = {
   },
   "router_equal":{
     "title": "路由接口合并节点",
-    "data_url": "/api/db",
+    "data_url": "/db",
     "params": {
       "action": "",
       "type": "edge",
@@ -114,7 +117,7 @@ const clickTables = {
   },
   "pop_neighbor":{
     "title": "PoP邻居",
-    "data_url": "/api/other",
+    "data_url": "/other",
     "params": {
       "action": "pop",
       "type": "neighbor",
