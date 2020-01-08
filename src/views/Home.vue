@@ -91,7 +91,8 @@ export default {
 };
 </script>
 <style>
-.ball-pulse > div {
+  /* @import '../assets/iconfont/webstyle.css'; */
+  .ball-pulse > div {
   background: orange;
 }
 
@@ -175,7 +176,7 @@ text {
 .well {
   background-color: #fff !important;
 }
-button.btn {
+.el-form-item__content > div > button{
   color: #8cc5ff !important;
   background-color: #ecf5ff !important;
   border: 1px solid #d9ecff !important;
@@ -188,12 +189,12 @@ button.btn {
   margin: 0px 10px 0px 0px !important;
 }
 
-button.btn:hover {
+.el-form-item__content > div > button:hover {
   color: #409eff !important;
   background-color: #ecf5ff !important;
   border: 1px solid #b3d8ff !important;
 }
-button.btn:active {
+.el-form-item__content > div > button:active {
   color: #ffffff !important;
   background-color: #409eff !important;
   border: 1px solid #409eff !important;
@@ -209,37 +210,46 @@ button.btn:active {
 body {
   font-size: 12px;
 }
-
-.nav-tabs > li.active > a {
+.el-tabs__nav{
+  border:0px !important;
+}
+.el-tabs__nav > div.is-active{
   background-color: #3498e9 !important;
   border: 1px solid transparent !important;
   border-radius: 10px 10px 0 0 !important;
   color: #fff !important;
+  text-align: center !important;
 }
-.nav-tabs > li.active > a:focus {
+.el-tabs__nav > div.is-active:focus {
   background-color: #3498e9 !important;
   border: 1px solid transparent !important;
   border-radius: 10px 10px 0 0 !important;
   color: #fff !important;
+  text-align: center !important;
 }
-.nav-tabs > li.active > a:hover {
+.el-tabs__nav > div.is-active:hover {
   background-color: #3498e9 !important;
   border: 1px solid transparent !important;
   border-radius: 10px 10px 0 0 !important;
   color: #fff !important;
+  text-align: center !important;
 }
-.nav-tabs > li > a:hover {
+.el-tabs__nav > div:hover {
   background-color: #e5e5e5 !important;
   border: 1px solid #ddd;
+  text-align: center !important;
 }
-.nav-tabs > li > a {
-  background-color: #fff !important;
+.el-tabs__nav > div {
+  /* background-color: #fff !important; */
+  height: 34px;
   border: 1px solid #ddd;
   border-radius: 10px 10px 0 0 !important;
   font-weight: bold !important;
   line-height: 12px;
   min-width: 25px;
   color: #555 !important;
+  text-align: center !important;
+  padding:10px;
 }
 
 .field {
@@ -269,4 +279,62 @@ body {
   margin-right: 0px;
   margin-bottom: 0px;
 }
+
+.el-form-item>.el-form-item__content>.el-input{
+  width:150px;
+}
+
+.el-form-item .el-radio{
+  margin-right: 10px;
+}
+.el-form-item .el-select{
+  width:auto;
+  min-width: 10px;
+  max-width: 120px;
+}
+
+.el-form-item .el-select input{
+  color: #8cc5ff !important;
+  background-color: #ecf5ff !important;
+  border: 1px solid #d9ecff !important;
+  height: 30px !important;
+  line-height: 13px !important;
+  padding: 8px 15px !important;
+  font-size: 12px !important;
+
+  border-radius: 3px !important;
+  margin: 0px 10px 0px 0px !important;
+}
+
+.el-form-item .el-select input:hover {
+  color: #409eff !important;
+  background-color: #ecf5ff !important;
+  border: 1px solid #b3d8ff !important;
+}
+.el-form-item .el-select input:active {
+  color: #ffffff !important;
+  background-color: #409eff !important;
+  border: 1px solid #409eff !important;
+}
+.el-form-item .el-form-item__label {
+  font-weight: 700;
+  font-size: 12px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.el-radio {
+  font-weight: 700;
+  font-size: 12px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.el-tabs__item {
+  font-weight: 700;
+  font-size: 12px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+</style>
+<style scoped>
+
 </style>

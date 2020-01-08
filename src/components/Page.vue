@@ -231,7 +231,9 @@ export default {
         params["type"] = selectToActionAndType[this.action][this.type]["type"];
       }
 
-      params["export_limit"] = 5000;
+      params["pageIndex"] = 1;
+      params["pageSize"] = 5000;
+      // params["export_limit"] = 5000;
       let export_params = Object.keys(params)
         .map(function(key) {
           return (
@@ -242,7 +244,7 @@ export default {
 
       // let url = ( this.export_url.startsWith("/api") || this.export_url.startsWith("/celery") ) ?
       //    this.data_url : ( "/api" + this.export_url );
-      let url = this.data_url;
+      let url = this.button_items.export_url;
       this.$refs["downloadtag"].href = url +"?"+ export_params;
       this.$refs["downloadtag"].firstElementChild.click();
     },
