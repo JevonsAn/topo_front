@@ -12,27 +12,27 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api':{
+      '/':{
         target: 'http://' + address.topo_website + ':2525/',
         changeOrigin:true,
         pathRewrite:{
-          '^/api': ''
+          // '^/api': ''
         }
       },
-      '/celery':{
-        target: 'http://' + address.topo_celery + ':2234/',
-        changeOrigin:true,
-        pathRewrite:{
-          '^/celery': ''
-        }
-      },
-      '/website':{
-        target: `http://${address.topo_celery}:7777/`,
-        changeOrigin:true,
-        pathRewrite:{
-          '^/website': ''
-        }
-      }
+      // '/celery':{
+      //   target: 'http://' + address.topo_celery + ':2234/',
+      //   changeOrigin:true,
+      //   pathRewrite:{
+      //     '^/celery': ''
+      //   }
+      // },
+      // '/website':{
+      //   target: `http://${address.topo_celery}:7777/`,
+      //   changeOrigin:true,
+      //   pathRewrite:{
+      //     '^/website': ''
+      //   }
+      // }
     },
 
     // Various Dev Server settings

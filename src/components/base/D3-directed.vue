@@ -24,8 +24,6 @@
     computed: {
     },
     methods: {
-
-
     },
     watch: {
       nodes: function () {
@@ -97,73 +95,73 @@
   };
 
   function draw(nodes, links, svg_width, svg_height) {
-        if (nodes && links){
-          console.log("进入draw");
-        }else{
-          console.log("nodes或links为空");
-          return;
-        }
+    if (nodes && links){
+      console.log("进入draw");
+    }else{
+      console.log("nodes或links为空");
+      return;
+    }
 
-        const svg = d3.select("svg#topo");
+    const svg = d3.select("svg#topo");
 
-        svg.selectAll("g").remove();  // 清除画布所有之前绘制的图形
+    svg.selectAll("g").remove();  // 清除画布所有之前绘制的图形
 
-        simulation = d3.forceSimulation(nodes)
-          .force("link", d3.forceLink(links).id(d => d.id))
-          .force("charge", d3.forceManyBody().strength(-500))
-          .force("center", d3.forceCenter(svg_width / 2, svg_height / 2));
+    simulation = d3.forceSimulation(nodes)
+      .force("link", d3.forceLink(links).id(d => d.id))
+      .force("charge", d3.forceManyBody().strength(-500))
+      .force("center", d3.forceCenter(svg_width / 2, svg_height / 2));
 
-        const link = svg.append("g")
-          .attr("stroke", "#999")
-          .attr("stroke-opacity", 0.6)
-          .selectAll("line")
-          .data(links)
-          .join("line")
-          .attr("stroke-width", "2px");
+    const link = svg.append("g")
+      .attr("stroke", "#999")
+      .attr("stroke-opacity", 0.6)
+      .selectAll("line")
+      .data(links)
+      .join("line")
+      .attr("stroke-width", "2px");
 
-        const node = svg.append("g")
-          .selectAll("g")
-          .data(nodes)
-          .join("g")
-          .call(drag(simulation));
+    const node = svg.append("g")
+      .selectAll("g")
+      .data(nodes)
+      .join("g")
+      .call(drag(simulation));
 
-        node.append("circle")
-          .attr("stroke", "#fff")
-          .attr("stroke-width", 1.5)
-          .attr("r", 12.5)
-          .attr("fill", d => circle_color[d.class]);
+    node.append("circle")
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 1.5)
+      .attr("r", 12.5)
+      .attr("fill", d => circle_color[d.class]);
 
-        node.append("text")
-          .attr('dy', '.35em')
-          .attr('font-size', '9px')
-          .style('text-anchor', 'middle')
-          .style('user-select', 'none')
-          .style('cursor', 'default')
-          .attr('fill', '#333')
-          .text(function(d){return d.ip;});
+    node.append("text")
+      .attr('dy', '.35em')
+      .attr('font-size', '9px')
+      .style('text-anchor', 'middle')
+      .style('user-select', 'none')
+      .style('cursor', 'default')
+      .attr('fill', '#333')
+      .text(function(d){return d.ip;});
 
-        node.append("title")
-          .text(function (d) {
-            return "IP : " + d.ip + "\n" +
-            "节点度 : " + d.degree;
-          });
+    node.append("title")
+      .text(function (d) {
+        return "IP : " + d.ip + "\n" +
+        "节点度 : " + d.degree;
+      });
 
-        simulation.on("tick", () => {
-          link
-            .attr("x1", d => d.source.x)
-            .attr("y1", d => d.source.y)
-            .attr("x2", d => d.target.x)
-            .attr("y2", d => d.target.y);
+    simulation.on("tick", () => {
+      link
+        .attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
 
-          node
-            .attr("transform", function(d) {
-              return "translate(" + d.x + "," + d.y + ")";
-            });
+      node
+        .attr("transform", function(d) {
+          return "translate(" + d.x + "," + d.y + ")";
         });
+    });
 
-        // invalidation.then(() => simulation.stop());
-        // return svg.node();
-      }
+    // invalidation.then(() => simulation.stop());
+    // return svg.node();
+  }
 
   function resize(svg_width, svg_height) {
     simulation.force("center", d3.forceCenter(svg_width / 2, svg_height / 2));

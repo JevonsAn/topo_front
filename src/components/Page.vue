@@ -262,6 +262,7 @@ export default {
         params["type"] = selectToActionAndType[this.action][this.type]["type"];
       }
       Object.assign(params, this.forms_conditon);
+      console.log(this.type, this.action);
       this.$refs.table.refresh(params);
     },
     handleIpClick: function (ip, out_ip) {

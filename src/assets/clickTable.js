@@ -5,7 +5,7 @@ function special_actionType_to_params(table, action, type, ip, out_ip){
       "action":"link_change",
       "type":  "node",
     };
-    if (type.endsWith("edge")){
+    if (type.endsWith("edge") && action !== "router_node"){
       params["action"] = "link_change";
       params["type"] = "edge";
       params["out_ip"] = out_ip;
@@ -103,7 +103,7 @@ const clickTables = {
     ]
   },
   "router_equal":{
-    "title": "",
+    "title": "路由接口合并节点",
     "data_url": "/db",
     "params": {
       "action": "",
